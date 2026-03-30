@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZEB Kitchen — Современная кухня с душой</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Lato', sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background-color: #fff;
+      background-image: linear-gradient(to bottom, #f9f7f4, #ffffff);
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 2rem 0; }
+    section { padding: 4rem 0; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; color: #222; }
+    h1 { font-size: 2.8rem; font-weight: 700; }
+    h2 { font-size: 2.2rem; font-weight: 700; }
+    p { margin-bottom: 1rem; }
+    a { text-decoration: none; color: inherit; }
+
+    #hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/r.jpg') no-repeat center center/cover;
+      color: #f5f0e6;
+      text-align: center;
+      padding: 8rem 0;
+    }
+    #hero h1 { font-size: 3rem; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+    #hero p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; }
+    .cta-button {
+      display: inline-block;
+      margin: 0.5rem 0.75rem;
+      padding: 0.8rem 1.8rem;
+      background: #d4a574;
+      color: white;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border: none;
+      cursor: pointer;
+    }
+    .cta-button:hover { background: #c18e55; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+    .promo-slider { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+    .promo-card {
+      background: rgba(255,255,255,0.95);
+      color: #333;
+      padding: 1.2rem;
+      border-radius: 12px;
+      text-align: center;
+      min-width: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border: 1px solid #e0d8d0;
+    }
+    .promo-card h3 { color: #d4a574; font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+    .menu-category { display: none; }
+    .menu-category.active { display: block; }
+    .dish {
+      display: flex;
+      margin-bottom: 2rem;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: #faf9f7;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    .dish:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .dish img { width: 160px; height: 160px; object-fit: cover; border-radius: 10px; border: 2px solid #e0d8d0; flex-shrink: 0; }
+    .dish-info { flex: 1; }
+    .dish-info h4 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #222; }
+    .dish-info p { font-size: 0.95rem; color: #555; margin-bottom: 0.5rem; }
+    .dish-info strong { font-size: 1.1rem; color: #d4a574; font-weight: bold; }
+    .category-tabs { display: flex; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .tab {
+      padding: 0.6rem 1.2rem;
+      background: #e6d3b3;
+      color: #222;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .tab:hover, .tab.active { background: #d4a574; color: white; }
+
+    .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .about-item {
+      background: #faf9f7;
+      padding: 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border: 1px solid #e0d8d0;
+    }
+    .about-item h3 { color: #d4a574; font-size: 1.3rem; margin-bottom: 1rem; }
+    .team-member { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .team-photo { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 2px solid #e0d8d0; }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .map-container { height: 300px; background: #eee; display: flex; align-items: center; justify-content: center; margin-top: 1.5rem; border-radius: 12px; overflow: hidden; }
+    .map-container iframe { width: 100%; height: 100%; border: none; }
+    .contact-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+    .contact-card { background: #faf9f7; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); border: 1px solid #e0d8d0; }
+    .contact-card h3 { color: #d4a574; font-size: 1.2rem; margin-bottom: 1rem; }
+
+    .news-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .news-card { background: #faf9f7; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); border: 1px solid #e0d8d0; }
+    .news-date { font-size: 0.9rem; color: #777; margin-bottom: 0.5rem; }
+    .news-card h3 { color: #222; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .news-more { color: #d4a574; font-weight: 600; display: inline-block; margin-top: 0.5rem; transition: all 0.3s; }
+    .news-more:hover { color: #c18e55; transform: translateX(5px); }
+
+    .reviews-slider { display: flex; gap: 2rem; overflow-x: auto; padding: 1rem 0; scrollbar-width: thin; }
+    .review { min-width: 300px; background: #faf9f7; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); border: 1px solid #e0d8d0; }
+    .review-rating { color: #d4a574; font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .review p { font-size: 1rem; line-height: 1.5; }
+    .review strong { color: #222; font-weight: 600; }
+
+    footer { background: #222; color: #ddd; text-align: center; padding: 2rem 0; font-size: 0.9rem; }
+    footer p { margin-bottom: 0.5rem; }
+
+    .cart-icon {
+      position: fixed; top: 20px; right: 20px;
+      background: #d4a574; color: white;
+      width: 50px; height: 50px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: bold; cursor: pointer; z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .cart-badge {
+      position: absolute; top: -5px; right: -5px;
+      background: #c18e55; color: white; border-radius: 50%;
+      width: 20px; height: 20px; font-size: 0.8rem;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lato', sans-serif;
+    }
+    .cart-modal {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6); display: none;
+      justify-content: center; align-items: center; z-index: 2000;
+    }
+    .cart-content {
+      background: #fff; width: 90%; max-width: 500px; padding: 2rem;
+      border-radius: 12px; max-height: 80vh; overflow-y: auto;
+      font-family: 'Lato', sans-serif;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid #e0d8d0;
+    }
+    .cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+    .cart-header h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #222; }
+    .cart-close { font-size: 1.5rem; cursor: pointer; color: #777; }
+    .cart-item { padding: 0.8rem 0; border-bottom: 1px solid #e0d8d0; font-size: 1rem; color: #222; }
+    .cart-item strong { color: #d4a574; }
+    .cart-remove { float: right; cursor: pointer; font-weight: bold; color: #c18e55; margin-left: 10px; }
+    .cart-remove:hover { color: #a06b3f; }
+    .cart-total { margin-top: 1.5rem; font-weight: bold; font-size: 1.2rem; color: #d4a574; text-align: right; }
+
+    .payment-methods { margin-top: 1.5rem; padding: 1.5rem; background: #faf9f7; border-radius: 12px; border: 1px solid #e0d8d0; }
+    .payment-methods h4 { font-size: 1.1rem; color: #222; margin-bottom: 1rem; }
+    .payment-option {
+      display: flex; align-items: center; margin-bottom: 1rem;
+      padding: 0.8rem; border: 2px solid #e0d8d0; border-radius: 8px;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .payment-option:hover { border-color: #d4a574; }
+    .payment-option input[type="radio"] { margin-right: 10px; width: 18px; height: 18px; cursor: pointer; }
+    .payment-option.active { border-color: #d4a574; background: #fff9f3; }
+    .payment-option label { cursor: pointer; font-size: 0.95rem; font-weight: 500; }
+    .payment-option .payment-icon {
+      display: inline-block; width: 30px; height: 30px; margin-right: 10px;
+      background: #d4a574; color: white; border-radius: 50%;
+      text-align: center; line-height: 30px; font-size: 0.9rem; font-weight: bold;
+    }
+    .payment-option.sbp .payment-icon { background: #0077cc; }
+    .payment-option.card .payment-icon { background: #e63946; }
+    .payment-input {
+      display: none; margin-top: 1rem; padding: 0.8rem;
+      border: 2px solid #e0d8d0; border-radius: 8px;
+      font-size: 1rem; width: 100%; transition: border-color 0.2s;
+    }
+    .payment-input:focus { outline: none; border-color: #d4a574; }
+    .payment-input.active { display: block; }
+    .payment-input::placeholder { color: #999; }
+
+    .booking-fixed {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #222; color: white;
+      padding: 1rem 1.5rem; border-radius: 30px;
+      font-weight: bold; font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 999;
+    }
+    .booking-fixed:hover { background: #333; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); }
+
+    .news-modal {
+      display: none; position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7); z-index: 3000; overflow-y: auto;
+    }
+    .news-modal-content {
+      background-color: #fff; margin: 5% auto; padding: 0;
+      border-radius: 16px; width: 90%; max-width: 800px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      position: relative; animation: modalOpen 0.3s ease-out;
+    }
+    @keyframes modalOpen { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+    .news-modal-header {
+      background: linear-gradient(135deg, #d4a574 0%, #c18e55 100%);
+      color: white; padding: 2rem; border-radius: 16px 16px 0 0; position: relative;
+    }
+    .news-modal-header h3 { color: white; margin-bottom: 0.5rem; font-size: 1.8rem; }
+    .news-modal-date { font-size: 0.9rem; opacity: 0.9; font-weight: 300; }
+    .news-modal-body { padding: 2rem; }
+    .news-modal-image {
+      width: 100%; height: 300px;
+      background: linear-gradient(135deg, #f9f7f4 0%, #ffffff 100%);
+      border-radius: 12px; margin-bottom: 1.5rem; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; border: 2px solid #e0d8d0;
+    }
+    .news-modal-image img { width: 100%; height: 100%; object-fit: cover; }
+    .news-modal-body p { margin-bottom: 1rem; line-height: 1.7; }
+    .news-modal-body ul { margin-left: 1.5rem; margin-bottom: 1rem; color: #555; }
+    .news-modal-body li { margin-bottom: 0.5rem; line-height: 1.6; }
+    .news-modal-body h4 { color: #d4a574; font-size: 1.3rem; margin: 1.5rem 0 1rem 0; }
+    .news-modal-footer {
+      padding: 1.5rem 2rem; background-color: #faf9f7;
+      border-radius: 0 0 16px 16px; text-align: right;
+      border-top: 1px solid #e0d8d0; display: flex; justify-content: flex-end; gap: 10px;
+    }
+    .news-modal-close {
+      position: absolute; top: 15px; right: 20px;
+      font-size: 2.5rem; color: white; cursor: pointer;
+      transition: all 0.3s; z-index: 10; font-weight: bold;
+    }
+    .news-modal-close:hover { transform: rotate(90deg); }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; } h2 { font-size: 1.6rem; }
+      .dish { flex-direction: column; }
+      .dish img { width: 100%; height: auto; }
+      .promo-slider, .category-tabs, .about-grid, .contact-info, .news-list { grid-template-columns: 1fr; flex-direction: column; }
+      .reviews-slider { flex-direction: column; min-width: auto; }
+      .booking-fixed { bottom: 15px; right: 15px; padding: 0.8rem 1.2rem; font-size: 0.9rem; }
+      .news-modal-content { margin: 10% auto; width: 95%; }
+      .news-modal-image { height: 200px; }
+      .news-modal-header h3 { font-size: 1.5rem; }
+      .news-modal-body { padding: 1.5rem; }
+      .news-modal-footer { padding: 1rem 1.5rem; flex-direction: column; align-items: center; }
+      .news-modal-footer .cta-button { width: 100%; margin: 5px 0; }
+      .cart-content { width: 95%; padding: 1.5rem; }
+    }
+
+    /* ═══════════════════════════════════════════
+       СТИЛИ АДМИНКИ (не затрагивают основной сайт)
+       ═══════════════════════════════════════════ */
+    #adminBtn {
+      position: fixed; bottom: 80px; left: 20px; z-index: 998;
+      background: rgba(34,34,34,0.5); color: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.4rem 1rem; font-size: 0.7rem; letter-spacing: 1px;
+      text-transform: uppercase; cursor: pointer;
+      font-family: 'Lato', sans-serif; border-radius: 20px;
+      transition: all 0.3s; backdrop-filter: blur(4px);
+    }
+    #adminBtn:hover { background: #222; color: #fff; border-color: #555; }
+
+    .admin-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.78); z-index: 5000;
+      justify-content: center; align-items: center; backdrop-filter: blur(6px);
+    }
+    .admin-login-box {
+      background: #fff; padding: 2.5rem 2rem; width: 90%; max-width: 380px;
+      border-radius: 16px; text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2); border: 1px solid #e0d8d0;
+    }
+    .admin-login-box h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.4rem; }
+    .admin-login-box p { color: #777; font-size: 0.88rem; margin-bottom: 1.5rem; }
+    .admin-input {
+      width: 100%; padding: 0.8rem 1rem; margin-bottom: 1rem;
+      border: 2px solid #e0d8d0; border-radius: 8px;
+      font-family: 'Lato', sans-serif; font-size: 0.95rem; color: #222;
+      outline: none; transition: border-color 0.2s;
+    }
+    .admin-input:focus { border-color: #d4a574; }
+    .admin-error { color: #c0392b; font-size: 0.85rem; margin-bottom: 1rem; display: none; }
+    .admin-cancel-btn {
+      width: 100%; background: transparent; border: 2px solid #e0d8d0;
+      border-radius: 20px; padding: 0.6rem 1.5rem;
+      font-family: 'Lato', sans-serif; cursor: pointer;
+      font-size: 0.9rem; transition: all 0.2s; margin-top: 0.5rem;
+    }
+    .admin-cancel-btn:hover { border-color: #222; }
+
+    .admin-panel {
+      display: none; position: fixed; inset: 0;
+      z-index: 4999; background: #f5f2ed; overflow-y: auto;
+    }
+    .admin-topbar {
+      background: #222; padding: 1rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.75rem;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .admin-topbar h2 { color: #fff; font-family: 'Playfair Display', serif; font-size: 1.4rem; margin: 0; }
+    .admin-topbar h2 span { color: #d4a574; }
+    .admin-tab-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .a-tab {
+      padding: 0.45rem 1.1rem; background: transparent;
+      color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px; cursor: pointer;
+      font-family: 'Lato', sans-serif; font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+    .a-tab:hover, .a-tab.active { background: #d4a574; color: #fff; border-color: #d4a574; }
+    .a-exit {
+      padding: 0.45rem 1.1rem; background: transparent;
+      color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px; cursor: pointer;
+      font-family: 'Lato', sans-serif; font-size: 0.8rem; transition: all 0.2s;
+    }
+    .a-exit:hover { color: #fff; border-color: #fff; }
+
+    .admin-body { padding: 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .admin-section { display: none; }
+    .admin-section.active { display: block; }
+    .admin-section > h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.6rem;
+      margin-bottom: 1rem; padding-bottom: 0.8rem;
+      border-bottom: 2px solid #e0d8d0; color: #222;
+    }
+    .admin-notice {
+      background: #fff9f0; border: 1px solid #f0d9b5; border-radius: 8px;
+      padding: 0.9rem 1.2rem; font-size: 0.85rem; color: #8a6030; margin-bottom: 1.2rem;
+    }
+    .admin-toolbar { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+    .admin-toolbar label { font-size: 0.82rem; color: #555; }
+    .admin-select {
+      padding: 0.5rem 1rem; border: 2px solid #e0d8d0; border-radius: 8px;
+      background: #fff; font-family: 'Lato', sans-serif; font-size: 0.88rem;
+      color: #222; cursor: pointer; outline: none;
+    }
+    .admin-select:focus { border-color: #d4a574; }
+    .a-btn-add {
+      padding: 0.55rem 1.3rem; background: #d4a574; color: #fff;
+      border: none; border-radius: 20px;
+      font-family: 'Lato', sans-serif; font-size: 0.85rem; font-weight: 700;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .a-btn-add:hover { background: #c18e55; }
+
+    .admin-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .admin-dish-card {
+      background: #fff; border-radius: 12px; overflow: hidden;
+      border: 1px solid #e0d8d0; box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      transition: transform 0.2s;
+    }
+    .admin-dish-card:hover { transform: translateY(-2px); }
+    .admin-dish-card img { width: 100%; height: 140px; object-fit: cover; background: #f0ebe3; display: block; }
+    .admin-dish-card-body { padding: 0.9rem 1rem; }
+    .admin-dish-card-body h4 { font-size: 0.98rem; margin-bottom: 0.3rem; color: #222; }
+    .admin-dish-card-body p { font-size: 0.8rem; color: #777; margin-bottom: 0.4rem; }
+    .admin-price-tag { display: inline-block; background: #d4a574; color: #fff; padding: 0.15rem 0.6rem; border-radius: 10px; font-size: 0.8rem; font-weight: 700; }
+    .admin-dish-card-footer { display: flex; gap: 0.5rem; padding: 0.7rem 1rem; border-top: 1px solid #f0ebe3; background: #faf9f7; }
+    .a-btn-edit {
+      flex: 1; padding: 0.4rem; background: #222; color: #fff;
+      border: none; border-radius: 6px;
+      font-family: 'Lato', sans-serif; font-size: 0.78rem;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .a-btn-edit:hover { background: #d4a574; }
+    .a-btn-del {
+      flex: 1; padding: 0.4rem; background: #fef0f0; color: #c0392b;
+      border: 1px solid #fcc; border-radius: 6px;
+      font-family: 'Lato', sans-serif; font-size: 0.78rem;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .a-btn-del:hover { background: #c0392b; color: #fff; border-color: #c0392b; }
+
+    .photo-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+    .photo-card { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e0d8d0; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+    .photo-card img { width: 100%; height: 150px; object-fit: cover; background: #f0ebe3; display: block; }
+    .photo-card-body { padding: 0.8rem 1rem; }
+    .photo-card-body h4 { font-size: 0.95rem; margin-bottom: 0.2rem; color: #222; }
+    .photo-card-body p { font-size: 0.78rem; color: #888; }
+    .photo-card-footer { padding: 0.7rem 1rem; border-top: 1px solid #f0ebe3; background: #faf9f7; }
+    .a-btn-upload {
+      display: block; width: 100%; padding: 0.45rem; background: #222; color: #fff;
+      border: none; border-radius: 6px;
+      font-family: 'Lato', sans-serif; font-size: 0.8rem;
+      cursor: pointer; text-align: center; transition: background 0.2s;
+    }
+    .a-btn-upload:hover { background: #d4a574; }
+
+    .form-modal {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.65); z-index: 6000;
+      justify-content: center; align-items: center; backdrop-filter: blur(4px);
+    }
+    .form-box {
+      background: #fff; width: 90%; max-width: 500px;
+      max-height: 90vh; overflow-y: auto;
+      border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); border: 1px solid #e0d8d0;
+    }
+    .form-box-header {
+      padding: 1.3rem 1.5rem; background: #222; color: #fff;
+      border-radius: 16px 16px 0 0;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .form-box-header h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #fff; margin: 0; }
+    .form-box-close { cursor: pointer; font-size: 1.4rem; opacity: 0.7; }
+    .form-box-close:hover { opacity: 1; }
+    .form-body { padding: 1.5rem; }
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label { display: block; font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; color: #888; margin-bottom: 0.4rem; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 0.75rem 1rem; border: 2px solid #e0d8d0; border-radius: 8px;
+      background: #faf9f7; font-family: 'Lato', sans-serif; font-size: 0.9rem; color: #222;
+      outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: #d4a574; }
+    .form-group textarea { resize: vertical; min-height: 75px; }
+    .form-img-preview {
+      width: 100%; height: 140px; object-fit: cover; border-radius: 8px;
+      margin-top: 0.5rem; border: 2px solid #e0d8d0; background: #f0ebe3; display: none;
+    }
+    .form-file-label { font-size: 0.82rem; color: #888; margin-top: 0.5rem; display: block; }
+    .form-actions { display: flex; gap: 0.8rem; justify-content: flex-end; margin-top: 1.2rem; }
+    .f-save {
+      padding: 0.65rem 1.8rem; background: #d4a574; color: #fff;
+      border: none; border-radius: 20px;
+      font-family: 'Lato', sans-serif; font-size: 0.88rem; font-weight: 700;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .f-save:hover { background: #c18e55; }
+    .f-cancel {
+      padding: 0.65rem 1.4rem; background: transparent; color: #777;
+      border: 2px solid #e0d8d0; border-radius: 20px;
+      font-family: 'Lato', sans-serif; font-size: 0.88rem; cursor: pointer; transition: all 0.2s;
+    }
+    .f-cancel:hover { border-color: #222; color: #222; }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Главная страница -->
+  <section id="hero">
+    <div class="container">
+      <h1>Добро пожаловать в ZEB Kitchen</h1>
+      <p>Современная кухня, живые ингредиенты, атмосфера, в которой хочется остаться.</p>
+      <a href="#menu" class="cta-button">Посмотреть меню</a>
+      <div class="promo-slider">
+        <div class="promo-card">
+          <h3>🔥 Ужин вдвоём за 1990 ₽</h3>
+          <p>Только по средам. Включает два основных блюда + десерт.</p>
+        </div>
+        <div class="promo-card">
+          <h3>🎁 Бесплатный десерт</h3>
+          <p>При заказе от 2500 ₽ — выберите любой десерт в подарок!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Меню -->
+  <section id="menu" class="container">
+    <h2>Меню ZEB Kitchen</h2>
+    <p>Мы готовим только из свежих, локальных продуктов. Каждое блюдо — результат работы нашей команды и уважения к вкусу.</p>
+    <div class="category-tabs">
+      <div class="tab active" data-category="starters">Закуски</div>
+      <div class="tab" data-category="mains">Основные</div>
+      <div class="tab" data-category="desserts">Десерты</div>
+      <div class="tab" data-category="drinks">Напитки</div>
+    </div>
+    <div class="menu-category active" id="starters"><div id="grid-starters"></div></div>
+    <div class="menu-category" id="mains"><div id="grid-mains"></div></div>
+    <div class="menu-category" id="desserts"><div id="grid-desserts"></div></div>
+    <div class="menu-category" id="drinks"><div id="grid-drinks"></div></div>
+  </section>
+
+  <!-- 3. О ресторане -->
+  <section id="about" class="container">
+    <h2>История ZEB Kitchen</h2>
+    <div class="about-grid">
+      <div class="about-item">
+        <h3>Наша философия</h3>
+        <p>Открытие ZEB Kitchen в 2025 году стало ответом на запрос гостей на честную, вкусную и осознанную еду. Мы не используем полуфабрикаты, консерванты или искусственные добавки.</p>
+      </div>
+      <div class="about-item">
+        <h3>Команда</h3>
+        <div class="team-member">
+          <div class="team-photo"><img id="photoChef" src="images/ban.jpg" alt="Шеф-повар"></div>
+          <div><strong>Алексей Петров</strong><br>Шеф-повар с 12-летним опытом</div>
+        </div>
+        <div class="team-member">
+          <div class="team-photo"><img id="photoManager" src="images/big.jpg" alt="Управляющий"></div>
+          <div><strong>Екатерина Смирнова</strong><br>Управляющая и создательница концепции</div>
+        </div>
+      </div>
+      <div class="about-item">
+        <h3>Интерьер</h3>
+        <img id="photoInterior" src="images/aaa.jpg" alt="Интерьер ZEB Kitchen" style="width:100%;border-radius:8px;">
+        <p>Пространство создано для встреч: дерево, мягкий свет, открытая кухня и зона у окна с видом на город.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Бронирование столов -->
+  <section id="booking" class="container">
+    <h2>Забронировать столик</h2>
+    <div class="booking-container">
+      <script src="http://547659.restoplace.ws/" async></script>
+    </div>
+  </section>
+
+  <!-- 5. Контакты -->
+  <section id="contacts" class="container">
+    <h2>Контакты</h2>
+    <div class="contact-info">
+      <div class="contact-card">
+        <h3>Адрес</h3>
+        <p><strong>ZEB Kitchen</strong><br>г. Москва, ул. Гастрономическая, д. 15</p>
+      </div>
+      <div class="contact-card">
+        <h3>Телефоны</h3>
+        <p>Телефон: <a href="tel:+74951234567">+7 (495) 123-45-67</a><br>
+        WhatsApp: <a href="http://547659.restoplace.ws/">+7 (495) 123-45-67</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>Режим работы</h3>
+        <p>Пн–Чт: 12:00–23:00<br>Пт–Сб: 12:00–00:00<br>Вс: 12:00–22:00</p>
+      </div>
+    </div>
+    <div class="map-container">
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor:your_hash" frameborder="0"></iframe>
+    </div>
+  </section>
+
+  <!-- 6. Новости / Акции -->
+  <section id="news" class="container">
+    <h2>Новости и акции</h2>
+    <div class="news-list">
+      <div class="news-card">
+        <div class="news-date">15 июня 2026</div>
+        <h3>Летний сет "Цитрус & Травы"</h3>
+        <p>Доступен до 31 августа. Включает три блюда и напиток по цене 1790 ₽.</p>
+        <a href="#" class="news-more" onclick="openNewsModal(1);return false;">Подробнее →</a>
+      </div>
+      <div class="news-card">
+        <div class="news-date">10 июня 2026</div>
+        <h3>Новый кофе от местной обжарки</h3>
+        <p>Теперь в ZEB Kitchen — авторский кофе от маленькой мастерской в районе Арбата.</p>
+        <a href="#" class="news-more" onclick="openNewsModal(2);return false;">Подробнее →</a>
+      </div>
+      <div class="news-card">
+        <div class="news-date">5 июня 2026</div>
+        <h3>День рождения ресторана!</h3>
+        <p>1 июля отмечаем первый год работы. Специальное меню и подарки гостям!</p>
+        <a href="#" class="news-more" onclick="openNewsModal(3);return false;">Подробнее →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Модальные окна для новостей -->
+  <div class="news-modal" id="newsModal1">
+    <div class="news-modal-content">
+      <span class="news-modal-close" onclick="closeNewsModal(1)">&times;</span>
+      <div class="news-modal-header">
+        <h3>Летний сет "Цитрус & Травы"</h3>
+        <div class="news-modal-date">15 июня 2026</div>
+      </div>
+      <div class="news-modal-body">
+        <div class="news-modal-image"><img src="images/Ct.jpg" alt="Летний сет Цитрус &amp; Травы"></div>
+        <p><strong>Период действия:</strong> с 15 июня по 31 августа 2026 года</p>
+        <p><strong>Стоимость:</strong> 1790 ₽ за комплект на одного человека</p><br>
+        <h4>Что входит в сет:</h4>
+        <ul>
+          <li><strong>Закуска:</strong> Салат с цитрусовыми, рукколой и пармезаном</li>
+          <li><strong>Основное блюдо:</strong> Форель на гриле с травами и лимоном</li>
+          <li><strong>Десерт:</strong> Лимонный тарт с меренгой</li>
+          <li><strong>Напиток:</strong> Авторский лимонад "Мята &amp; Лайм"</li>
+        </ul><br>
+        <p>Идеальный выбор для жаркого дня! Сет доступен ежедневно с 12:00 до 17:00.</p>
+      </div>
+      <div class="news-modal-footer">
+        <button class="cta-button" onclick="closeNewsModal(1)">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="news-modal" id="newsModal2">
+    <div class="news-modal-content">
+      <span class="news-modal-close" onclick="closeNewsModal(2)">&times;</span>
+      <div class="news-modal-header">
+        <h3>Новый кофе от местной обжарки</h3>
+        <div class="news-modal-date">10 июня 2026</div>
+      </div>
+      <div class="news-modal-body">
+        <div class="news-modal-image"><img src="images/Cofe.jpg" alt="Кофе от местной обжарки"></div>
+        <p>Мы рады представить нашим гостям эксклюзивное партнёрство с небольшой кофейной мастерской <strong>"Arbat Roasters"</strong>.</p><br>
+        <h4>Почему это особенный кофе?</h4>
+        <ul>
+          <li>☕ <strong>Свежая обжарка:</strong> зёрна обжариваются вручную каждую неделю</li>
+          <li>🌱 <strong>Экологичность:</strong> прямые контракты с фермерами, отсутствие посредников</li>
+          <li>🏆 <strong>Премиум-сорта:</strong> только арабика высших категорий из Эфиопии и Колумбии</li>
+          <li>👨‍🍳 <strong>Ручная работа:</strong> каждый этап контролируется опытными специалистами</li>
+        </ul><br>
+        <h4>Что мы предлагаем:</h4>
+        <ul>
+          <li><strong>Эспрессо:</strong> 350 ₽</li>
+          <li><strong>Американо:</strong> 380 ₽</li>
+          <li><strong>Капучино/Латте:</strong> 420 ₽</li>
+          <li><strong>Фильтр-кофе (порция):</strong> 450 ₽</li>
+        </ul><br>
+        <p>Приходите попробовать настоящий кофе с душой и историей!</p>
+      </div>
+      <div class="news-modal-footer">
+        <button class="cta-button" onclick="closeNewsModal(2)">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="news-modal" id="newsModal3">
+    <div class="news-modal-content">
+      <span class="news-modal-close" onclick="closeNewsModal(3)">&times;</span>
+      <div class="news-modal-header">
+        <h3>День рождения ресторана!</h3>
+        <div class="news-modal-date">5 июня 2026</div>
+      </div>
+      <div class="news-modal-body">
+        <div class="news-modal-image"><img src="images/Hap.jpg" alt="День рождения ZEB Kitchen"></div>
+        <p><strong>1 июля 2026 года</strong> нашему ресторану исполняется первый год! 🎉</p>
+        <p>Мы невероятно благодарны каждому из вас за поддержку, тёплые слова и доверие в этот первый год нашего пути.</p><br>
+        <h4>Что ждёт наших гостей в этот особенный день:</h4>
+        <ul>
+          <li>🎂 <strong>Специальное праздничное меню</strong> от шеф-повара Алексея Петрова</li>
+          <li>🎁 <strong>Подарки каждому гостю</strong> — фирменные сувениры от ZEB Kitchen</li>
+          <li>🍾 <strong>Бесплатный бокал игристого</strong> для всех посетителей после 18:00</li>
+          <li>🎵 <strong>Живая музыка</strong> в исполнении джазового трио с 19:00 до 22:00</li>
+          <li>📸 <strong>Фотозона</strong> с профессиональным фотографом</li>
+        </ul><br>
+        <h4>Специальное предложение:</h4>
+        <p>Забронируйте столик заранее и получите <strong>скидку 20%</strong> на всё меню в день рождения ресторана!</p><br>
+        <p><strong>Время работы:</strong> 12:00 — 00:00</p>
+        <p><strong>Адрес:</strong> г. Москва, ул. Гастрономическая, д. 15</p><br>
+        <p>Ждём вас на нашем празднике! Давайте отметим вместе! 🥂</p>
+      </div>
+      <div class="news-modal-footer">
+        <button class="cta-button" onclick="closeNewsModal(3)">Закрыть</button>
+        <a href="http://547659.restoplace.ws/" class="cta-button" onclick="closeNewsModal(3)">Забронировать столик</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Отзывы -->
+  <section id="reviews" class="container">
+    <h2>Отзывы о ZEB Kitchen</h2>
+    <div class="reviews-slider">
+      <div class="review">
+        <div class="review-rating">★★★★★</div>
+        <p>«Не ожидал такого уровня в нашем городе! Блюда — как в большом городе, атмосфера — как дома. Обязательно вернёмся!»</p>
+        <p><strong>— Максим, 32 года</strong></p>
+      </div>
+      <div class="review">
+        <div class="review-rating">★★★★☆</div>
+        <p>«Очень вкусно, особенно стейк. Сервис немного медленный, но атмосфера это компенсирует.»</p>
+        <p><strong>— Анна, 28 лет</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 ZEB Kitchen. Все права защищены.</p>
+      <p>Сайт разработан с любовью к еде и людям.</p>
+    </div>
+  </footer>
+
+  <!-- Иконка корзины -->
+  <div class="cart-icon" onclick="openCart()">
+    🛒
+    <div class="cart-badge" id="cartCount">0</div>
+  </div>
+
+  <!-- Фиксированная кнопка бронирования -->
+  <a href="http://547659.restoplace.ws/" class="booking-fixed">Забронировать столик</a>
+
+  <!-- Кнопка входа в админку (незаметная, снизу слева) -->
+  <button id="adminBtn" onclick="showAdminLogin()">⚙ Админ</button>
+
+  <!-- Модальное окно корзины -->
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h3>Ваш заказ</h3>
+        <span class="cart-close" onclick="closeCart()">&times;</span>
+      </div>
+      <div id="cartItems"></div>
+      <div class="cart-total" id="cartTotal"></div>
+      <div class="payment-methods">
+        <h4>Выберите способ оплаты</h4>
+        <div class="payment-option sbp active" onclick="selectPaymentMethod('sbp')">
+          <input type="radio" name="payment" id="payment-sbp" checked>
+          <span class="payment-icon">₽</span>
+          <label for="payment-sbp">СБП (по номеру телефона)</label>
+        </div>
+        <input type="tel" id="phone-input" class="payment-input active" placeholder="+7 (999) 123-45-67" maxlength="18">
+        <div class="payment-option card" onclick="selectPaymentMethod('card')">
+          <input type="radio" name="payment" id="payment-card">
+          <span class="payment-icon">💳</span>
+          <label for="payment-card">Привязка карты</label>
+        </div>
+        <input type="text" id="card-input" class="payment-input" placeholder="Номер карты (16 цифр)" maxlength="19">
+      </div>
+      <button class="cta-button" style="width:100%; margin-top:1rem;" onclick="confirmOrder()">Подтвердить заказ</button>
+    </div>
+  </div>
+
+  <!-- ══ АДМИНКА ══ -->
+
+  <!-- Экран входа -->
+  <div class="admin-overlay" id="adminOverlay">
+    <div class="admin-login-box">
+      <h2>Панель управления</h2>
+      <p>Введите пароль администратора</p>
+      <div class="admin-error" id="adminError">Неверный пароль. Попробуйте ещё раз.</div>
+      <input type="password" id="adminPassInput" class="admin-input" placeholder="Пароль"
+             onkeydown="if(event.key==='Enter') checkAdminPass()">
+      <button class="cta-button" style="width:100%;" onclick="checkAdminPass()">Войти</button>
+      <button class="admin-cancel-btn" onclick="closeAdminLogin()">Отмена</button>
+    </div>
+  </div>
+
+  <!-- Панель управления -->
+  <div class="admin-panel" id="adminPanel">
+    <div class="admin-topbar">
+      <h2>ZEB <span>Admin</span></h2>
+      <div class="admin-tab-btns">
+        <button class="a-tab active" onclick="switchAdminTab('dishes', this)">🍽 Блюда</button>
+        <button class="a-tab" onclick="switchAdminTab('photos', this)">🖼 Фотографии</button>
+      </div>
+      <button class="a-exit" onclick="closeAdminPanel()">✕ Выйти</button>
+    </div>
+    <div class="admin-body">
+
+      <!-- Вкладка блюд -->
+      <div class="admin-section active" id="admin-dishes">
+        <h3>Управление меню</h3>
+        <div class="admin-notice">
+          💡 Изменения сохраняются в браузере. Для постоянного хранения на сервере подключите базу данных.
+        </div>
+        <div class="admin-toolbar">
+          <label>Категория:</label>
+          <select class="admin-select" id="adminCatFilter" onchange="renderAdminDishes()">
+            <option value="starters">Закуски</option>
+            <option value="mains">Основные блюда</option>
+            <option value="desserts">Десерты</option>
+            <option value="drinks">Напитки</option>
+          </select>
+          <button class="a-btn-add" onclick="openDishForm(null)">+ Добавить блюдо</button>
+        </div>
+        <div class="admin-cards" id="adminDishCards"></div>
+      </div>
+
+      <!-- Вкладка фотографий -->
+      <div class="admin-section" id="admin-photos">
+        <h3>Фотографии ресторана</h3>
+        <div class="admin-notice">
+          💡 Выберите файл с компьютера — фотография сразу обновится на сайте. Форматы: JPG, PNG, WebP.
+        </div>
+        <div class="photo-cards">
+          <div class="photo-card">
+            <img id="prev-hero" src="images/r.jpg" alt="Главная">
+            <div class="photo-card-body"><h4>Главная страница</h4><p>Фоновое изображение hero-секции</p></div>
+            <div class="photo-card-footer">
+              <label class="a-btn-upload">📁 Заменить фото<input type="file" accept="image/*" style="display:none;" onchange="replacePhoto('hero',this)"></label>
+            </div>
+          </div>
+          <div class="photo-card">
+            <img id="prev-interior" src="images/aaa.jpg" alt="Интерьер">
+            <div class="photo-card-body"><h4>Интерьер</h4><p>Фото в разделе «О нас»</p></div>
+            <div class="photo-card-footer">
+              <label class="a-btn-upload">📁 Заменить фото<input type="file" accept="image/*" style="display:none;" onchange="replacePhoto('interior',this)"></label>
+            </div>
+          </div>
+          <div class="photo-card">
+            <img id="prev-chef" src="images/ban.jpg" alt="Шеф-повар">
+            <div class="photo-card-body"><h4>Шеф-повар</h4><p>Алексей Петров</p></div>
+            <div class="photo-card-footer">
+              <label class="a-btn-upload">📁 Заменить фото<input type="file" accept="image/*" style="display:none;" onchange="replacePhoto('chef',this)"></label>
+            </div>
+          </div>
+          <div class="photo-card">
+            <img id="prev-manager" src="images/big.jpg" alt="Управляющая">
+            <div class="photo-card-body"><h4>Управляющая</h4><p>Екатерина Смирнова</p></div>
+            <div class="photo-card-footer">
+              <label class="a-btn-upload">📁 Заменить фото<input type="file" accept="image/*" style="display:none;" onchange="replacePhoto('manager',this)"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Форма добавления/редактирования блюда -->
+  <div class="form-modal" id="dishFormModal">
+    <div class="form-box">
+      <div class="form-box-header">
+        <h3 id="formTitle">Добавить блюдо</h3>
+        <span class="form-box-close" onclick="closeDishForm()">✕</span>
+      </div>
+      <div class="form-body">
+        <div class="form-group">
+          <label>Название блюда</label>
+          <input type="text" id="fName" placeholder="Например: Тартар из говядины">
+        </div>
+        <div class="form-group">
+          <label>Описание</label>
+          <textarea id="fDesc" placeholder="Ингредиенты, способ приготовления..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Цена (₽)</label>
+          <input type="number" id="fPrice" placeholder="590" min="1">
+        </div>
+        <div class="form-group">
+          <label>Категория</label>
+          <select id="fCategory">
+            <option value="starters">Закуски</option>
+            <option value="mains">Основные блюда</option>
+            <option value="desserts">Десерты</option>
+            <option value="drinks">Напитки</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Фотография блюда</label>
+          <input type="text" id="fImg" placeholder="images/dish.jpg или URL">
+          <span class="form-file-label">или загрузите с компьютера:</span>
+          <input type="file" accept="image/*" onchange="handleDishImgUpload(this)" style="font-family:'Lato',sans-serif;font-size:0.85rem;margin-top:0.3rem;">
+          <img id="fImgPreview" class="form-img-preview" src="" alt="">
+        </div>
+        <div class="form-actions">
+          <button class="f-cancel" onclick="closeDishForm()">Отмена</button>
+          <button class="f-save" onclick="saveDish()">💾 Сохранить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ═══════════════════════════════════════════════
+    // ДАННЫЕ МЕНЮ
+    // ═══════════════════════════════════════════════
+    const defaultMenu = {
+      starters: [
+        { id:'s1', name:'Брускетта с авокадо и креветкой', desc:'Свежий хлеб, домашний авокадо-крем, тигровая креветка', price:590, img:'images/bruschetta.jpg' },
+        { id:'s2', name:'Тартар из говядины с соусом «Маттака»', desc:'Мясо выдержанное, соус из японского майонеза, васаби и кунжута', price:750, img:'images/main.jpg' }
+      ],
+      mains: [
+        { id:'m1', name:'Форель на гриле с сезонными овощами', desc:'Свежая форель, запечённые овощи, соус из цитрусов', price:1290, img:'images/min.jpg' },
+        { id:'m2', name:'Стейк из говядины «Рибай»', desc:'Выдержанный стейк, картофельное пюре, красное вино-соус', price:1890, img:'images/man.jpg' }
+      ],
+      desserts: [
+        { id:'d1', name:'Классическое тирамису', desc:'Маскарпоне, эспрессо, какао, печенье «Савоярди»', price:490, img:'images/sin.jpg' },
+        { id:'d2', name:'Нью-Йорк чизкейк с ягодным соусом', desc:'Плотный сырный корж, свежие ягоды, домашний соус', price:550, img:'images/san.jpg' }
+      ],
+      drinks: [
+        { id:'dr1', name:'Авторский кофе от местной обжарки', desc:'Эфиопия, Йиргачеффе, фильтр или эспрессо', price:350, img:'images/vin.jpg' },
+        { id:'dr2', name:'Коктейль «Цитрус & Травы»', desc:'Джин, лайм, базилик, медовый сироп, тоник', price:650, img:'images/van.jpg' }
+      ]
+    };
+
+    function loadMenu() {
+      try { const s = localStorage.getItem('zeb_menu'); return s ? JSON.parse(s) : JSON.parse(JSON.stringify(defaultMenu)); }
+      catch(e) { return JSON.parse(JSON.stringify(defaultMenu)); }
+    }
+    function saveMenuLS() {
+      try { localStorage.setItem('zeb_menu', JSON.stringify(menuData)); } catch(e) {}
+    }
+    let menuData = loadMenu();
+
+    // ═══════════════════════════════════════════════
+    // РЕНДЕР МЕНЮ (в оригинальном стиле dish)
+    // ═══════════════════════════════════════════════
+    function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function escJs(s) { return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'"); }
+
+    function renderMenuCategory(cat) {
+      const grid = document.getElementById('grid-' + cat);
+      if (!grid) return;
+      const items = menuData[cat] || [];
+      grid.innerHTML = items.map(d => `
+        <div class="dish">
+          <img src="${esc(d.img)}" alt="${esc(d.name)}" onerror="this.style.background='#f0ebe3';this.removeAttribute('src');">
+          <div class="dish-info">
+            <h4>${esc(d.name)}</h4>
+            <p>${esc(d.desc)}</p>
+            <strong>${d.price} ₽</strong><br><br>
+            <button class="cta-button" style="padding:0.4rem 1rem;font-size:0.9rem;"
+                    onclick="addToCart('${escJs(d.name)}', ${d.price})">В корзину</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderAllMenu() {
+      ['starters','mains','desserts','drinks'].forEach(renderMenuCategory);
+    }
+
+    renderAllMenu();
+
+    // ═══════════════════════════════════════════════
+    // ВКЛАДКИ МЕНЮ
+    // ═══════════════════════════════════════════════
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const category = tab.getAttribute('data-category');
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.menu-category').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(category).classList.add('active');
+      });
+    });
+
+    // ═══════════════════════════════════════════════
+    // КОРЗИНА
+    // ═══════════════════════════════════════════════
+    let cart = [];
+    let selectedPaymentMethod = 'sbp';
+
+    function addToCart(name, price) { cart.push({ name, price, type: 'dish' }); updateCart(); }
+    function removeFromCart(index) { cart.splice(index, 1); updateCart(); }
+
+    function updateCart() {
+      const count = cart.filter(i => i.type === 'dish').length;
+      document.getElementById('cartCount').textContent = count;
+      const itemsEl = document.getElementById('cartItems');
+      const totalEl = document.getElementById('cartTotal');
+      if (!cart.length) { itemsEl.innerHTML = '<p>Корзина пуста</p>'; totalEl.textContent = ''; return; }
+      let html = '', total = 0;
+      cart.forEach((item, idx) => {
+        if (item.type === 'dish') {
+          html += `<div class="cart-item">${esc(item.name)} — <strong>${item.price} ₽</strong>
+                   <span class="cart-remove" onclick="removeFromCart(${idx})">×</span></div>`;
+          total += item.price;
+        }
+      });
+      itemsEl.innerHTML = html;
+      totalEl.textContent = `Итого: ${total} ₽`;
+    }
+
+    function openCart() { document.getElementById('cartModal').style.display = 'flex'; }
+    function closeCart() { document.getElementById('cartModal').style.display = 'none'; }
+
+    function selectPaymentMethod(method) {
+      selectedPaymentMethod = method;
+      document.querySelectorAll('.payment-option').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.payment-input').forEach(el => el.classList.remove('active'));
+      if (method === 'sbp') {
+        document.querySelector('.payment-option.sbp').classList.add('active');
+        document.getElementById('payment-sbp').checked = true;
+        document.getElementById('phone-input').classList.add('active');
+      } else {
+        document.querySelector('.payment-option.card').classList.add('active');
+        document.getElementById('payment-card').checked = true;
+        document.getElementById('card-input').classList.add('active');
+      }
+    }
+
+    function formatPhone(input) {
+      let v = input.value.replace(/\D/g,'');
+      if (v.length > 0) v = '7' + v;
+      if (v.length > 11) v = v.substring(0,11);
+      let f = '';
+      if (v.length > 0) f = '+' + v;
+      if (v.length > 1) f = f.substring(0,2) + ' (' + f.substring(2);
+      if (v.length > 4) f = f.substring(0,6) + ') ' + f.substring(6);
+      if (v.length > 7) f = f.substring(0,11) + '-' + f.substring(11);
+      if (v.length > 9) f = f.substring(0,14) + '-' + f.substring(14);
+      input.value = f;
+    }
+
+    function formatCard(input) {
+      let v = input.value.replace(/\D/g,'');
+      if (v.length > 16) v = v.substring(0,16);
+      input.value = v.replace(/(\d{4})/g,'$1 ').trim();
+    }
+
+    function confirmOrder() {
+      if (!cart.length) { alert('Корзина пуста!'); return; }
+      if (selectedPaymentMethod === 'sbp') {
+        const ph = document.getElementById('phone-input').value.replace(/\D/g,'');
+        if (ph.length !== 11 || !ph.startsWith('7')) { alert('Пожалуйста, введите корректный номер телефона для СБП'); return; }
+      } else {
+        const cd = document.getElementById('card-input').value.replace(/\D/g,'');
+        if (cd.length !== 16) { alert('Пожалуйста, введите корректный номер карты (16 цифр)'); return; }
+      }
+      let msg = 'Ваш заказ принят!\n\n', total = 0;
+      cart.forEach(i => { if (i.type === 'dish') { msg += `• ${i.name} — ${i.price} ₽\n`; total += i.price; } });
+      msg += `\nИтого: ${total} ₽\n`;
+      if (selectedPaymentMethod === 'sbp') {
+        msg += `\nСпособ оплаты: СБП\nТелефон: ${document.getElementById('phone-input').value}`;
+      } else {
+        const card = document.getElementById('card-input').value;
+        msg += `\nСпособ оплаты: Карта\nКарта: ****${card.replace(/\s/g,'').slice(-4)}`;
+      }
+      alert(msg);
+      cart = []; updateCart(); closeCart();
+    }
+
+    document.getElementById('cartModal').addEventListener('click', function(e) { if (e.target === this) closeCart(); });
+    document.getElementById('phone-input').addEventListener('input', function(e) { formatPhone(e.target); });
+    document.getElementById('card-input').addEventListener('input', function(e) { formatCard(e.target); });
+
+    // ═══════════════════════════════════════════════
+    // МОДАЛКИ НОВОСТЕЙ
+    // ═══════════════════════════════════════════════
+    function openNewsModal(id) { document.getElementById('newsModal'+id).style.display='block'; document.body.style.overflow='hidden'; }
+    function closeNewsModal(id) { document.getElementById('newsModal'+id).style.display='none'; document.body.style.overflow='auto'; }
+    document.querySelectorAll('.news-modal').forEach(m => {
+      m.addEventListener('click', function(e) { if (e.target===this) { this.style.display='none'; document.body.style.overflow='auto'; } });
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.news-modal').forEach(m => { if (m.style.display==='block') { m.style.display='none'; document.body.style.overflow='auto'; } });
+        if (document.getElementById('adminOverlay').style.display==='flex') closeAdminLogin();
+      }
+    });
+
+    // ═══════════════════════════════════════════════
+    // АДМИНКА — АУТЕНТИФИКАЦИЯ
+    //
+    // Пароль хранится ТОЛЬКО как SHA-256 хэш.
+    // В открытом коде пароль НЕ виден.
+    //
+    // Текущий пароль: admin2025
+    //
+    // Как сменить пароль:
+    //  1. Придумайте новый пароль
+    //  2. Получите его SHA-256 хэш на сайте:
+    //     https://emn178.github.io/online-tools/sha256.html
+    //  3. Вставьте хэш вместо значения ADMIN_HASH ниже
+    // ═══════════════════════════════════════════════
+    const ADMIN_HASH = '0e89f223e226ae63268cf39152ab75722e811b89d29efb22a852f1667bd22ae0';
+
+    async function sha256(msg) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+    }
+
+    function showAdminLogin() {
+      document.getElementById('adminOverlay').style.display = 'flex';
+      document.getElementById('adminPassInput').value = '';
+      document.getElementById('adminError').style.display = 'none';
+      setTimeout(() => document.getElementById('adminPassInput').focus(), 100);
+    }
+    function closeAdminLogin() { document.getElementById('adminOverlay').style.display = 'none'; }
+
+    async function checkAdminPass() {
+      const val = document.getElementById('adminPassInput').value;
+      if (!val) return;
+      const hash = await sha256(val);
+      if (hash === ADMIN_HASH) {
+        closeAdminLogin();
+        openAdminPanel();
+      } else {
+        document.getElementById('adminError').style.display = 'block';
+        document.getElementById('adminPassInput').value = '';
+        document.getElementById('adminPassInput').focus();
+      }
+    }
+
+    function openAdminPanel() {
+      document.getElementById('adminPanel').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      renderAdminDishes();
+    }
+    function closeAdminPanel() {
+      document.getElementById('adminPanel').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    // ═══════════════════════════════════════════════
+    // ВКЛАДКИ АДМИНКИ
+    // ═══════════════════════════════════════════════
+    function switchAdminTab(tab, btn) {
+      document.querySelectorAll('.a-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('admin-' + tab).classList.add('active');
+    }
+
+    // ═══════════════════════════════════════════════
+    // УПРАВЛЕНИЕ БЛЮДАМИ
+    // ═══════════════════════════════════════════════
+    let editingDishId = null;
+
+    function renderAdminDishes() {
+      const cat = document.getElementById('adminCatFilter').value;
+      const items = menuData[cat] || [];
+      const container = document.getElementById('adminDishCards');
+      if (!items.length) {
+        container.innerHTML = '<p style="color:#999;font-size:0.9rem;padding:1rem 0;">В этой категории пока нет блюд.</p>';
+        return;
+      }
+      container.innerHTML = items.map(d => `
+        <div class="admin-dish-card">
+          <img src="${esc(d.img)}" alt="${esc(d.name)}" onerror="this.style.background='#f0ebe3';this.removeAttribute('src');">
+          <div class="admin-dish-card-body">
+            <h4>${esc(d.name)}</h4>
+            <p>${esc(d.desc)}</p>
+            <span class="admin-price-tag">${d.price} ₽</span>
+          </div>
+          <div class="admin-dish-card-footer">
+            <button class="a-btn-edit" onclick="openDishForm('${d.id}')">✏ Изменить</button>
+            <button class="a-btn-del" onclick="deleteDish('${d.id}')">✕ Удалить</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function findDishCat(id) {
+      for (const cat in menuData) { if (menuData[cat].find(d => d.id === id)) return cat; }
+      return null;
+    }
+
+    function openDishForm(id) {
+      editingDishId = id;
+      document.getElementById('formTitle').textContent = id ? 'Редактировать блюдо' : 'Добавить блюдо';
+      const prev = document.getElementById('fImgPreview');
+      prev.style.display = 'none'; prev.src = '';
+
+      if (id) {
+        const cat = findDishCat(id);
+        const dish = cat && menuData[cat].find(d => d.id === id);
+        if (dish) {
+          document.getElementById('fName').value = dish.name;
+          document.getElementById('fDesc').value = dish.desc;
+          document.getElementById('fPrice').value = dish.price;
+          document.getElementById('fCategory').value = cat;
+          document.getElementById('fImg').value = dish.img;
+          if (dish.img) { prev.src = dish.img; prev.style.display = 'block'; }
+        }
+      } else {
+        document.getElementById('fName').value = '';
+        document.getElementById('fDesc').value = '';
+        document.getElementById('fPrice').value = '';
+        document.getElementById('fCategory').value = document.getElementById('adminCatFilter').value;
+        document.getElementById('fImg').value = '';
+      }
+      document.getElementById('dishFormModal').style.display = 'flex';
+    }
+
+    function closeDishForm() { document.getElementById('dishFormModal').style.display = 'none'; }
+
+    function handleDishImgUpload(input) {
+      const file = input.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        document.getElementById('fImg').value = e.target.result;
+        const p = document.getElementById('fImgPreview');
+        p.src = e.target.result; p.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    document.getElementById('fImg').addEventListener('input', function() {
+      const p = document.getElementById('fImgPreview');
+      if (this.value) { p.src = this.value; p.style.display = 'block'; } else { p.style.display = 'none'; }
+    });
+
+    function saveDish() {
+      const name = document.getElementById('fName').value.trim();
+      const desc = document.getElementById('fDesc').value.trim();
+      const price = parseInt(document.getElementById('fPrice').value);
+      const cat = document.getElementById('fCategory').value;
+      const img = document.getElementById('fImg').value.trim() || 'images/main.jpg';
+
+      if (!name) { alert('Введите название блюда'); return; }
+      if (!price || price < 1) { alert('Введите корректную цену'); return; }
+
+      if (editingDishId) {
+        const oldCat = findDishCat(editingDishId);
+        if (oldCat) {
+          const idx = menuData[oldCat].findIndex(d => d.id === editingDishId);
+          if (oldCat !== cat) {
+            menuData[oldCat].splice(idx, 1);
+            menuData[cat].push({ id: editingDishId, name, desc, price, img });
+          } else {
+            menuData[oldCat][idx] = { id: editingDishId, name, desc, price, img };
+          }
+        }
+      } else {
+        menuData[cat].push({ id: cat.charAt(0) + Date.now(), name, desc, price, img });
+      }
+
+      saveMenuLS();
+      renderAllMenu();
+      renderAdminDishes();
+      closeDishForm();
+    }
+
+    function deleteDish(id) {
+      if (!confirm('Удалить это блюдо из меню?')) return;
+      const cat = findDishCat(id);
+      if (cat) menuData[cat] = menuData[cat].filter(d => d.id !== id);
+      saveMenuLS();
+      renderAllMenu();
+      renderAdminDishes();
+    }
+
+    // ═══════════════════════════════════════════════
+    // ЗАМЕНА ФОТОГРАФИЙ
+    // ═══════════════════════════════════════════════
+    function replacePhoto(key, input) {
+      const file = input.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        const src = e.target.result;
+        document.getElementById('prev-' + key).src = src;
+        if (key === 'hero') {
+          document.getElementById('hero').style.background =
+            `linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('${src}') no-repeat center center/cover`;
+        }
+        if (key === 'interior') { const el = document.getElementById('photoInterior'); if (el) el.src = src; }
+        if (key === 'chef')     { const el = document.getElementById('photoChef');     if (el) el.src = src; }
+        if (key === 'manager')  { const el = document.getElementById('photoManager');  if (el) el.src = src; }
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>
