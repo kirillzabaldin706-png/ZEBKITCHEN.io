@@ -234,6 +234,97 @@
     .tx-ok { color: #3B6D11; font-size: 0.78rem; background: #e6f4d7; padding: 2px 8px; border-radius: 10px; }
     .pm-section-title { font-size: 0.85rem; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.8rem; }
 
+    /* ═══ ПОЛИТИКА ОБРАБОТКИ ДАННЫХ + ДОКУМЕНТАЦИЯ ═══ */
+    .dp-toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.3rem 1.2rem;margin-top:0.6rem}
+    .dp-toc-item{font-size:0.83rem;color:#666;padding:0.22rem 0;border-bottom:1px solid #f0ebe3;cursor:pointer;transition:color 0.2s}
+    .dp-toc-item:hover{color:#d4a574}.dp-toc-num{color:#d4a574;font-weight:700;margin-right:0.3rem}
+    .dp-toc-box{background:#f9f7f4;border:1px solid #e0d8d0;border-radius:9px;padding:1rem 1.3rem;margin-bottom:1rem}
+    .dp-toc-bar{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#999;margin-bottom:0.4rem}
+    .dp-sec{scroll-margin-top:10px}
+    .dp-sec-head{display:flex;align-items:center;gap:0.7rem;margin:1.5rem 0 0.7rem;padding-bottom:0.6rem;border-bottom:2px solid #e0d8d0}
+    .dp-sec-num{width:28px;height:28px;border-radius:50%;background:#222;color:#d4a574;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .dp-sec-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#222}
+    .dp-p{font-size:0.88rem;color:#444;margin-bottom:0.75rem;line-height:1.75}.dp-p strong{color:#222}
+    .dp-h3{font-size:0.73rem;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#d4a574;margin:1rem 0 0.4rem}
+    .dp-ul{margin:0.3rem 0 0.8rem;padding:0;list-style:none}
+    .dp-ul li{padding:0.3rem 0 0.3rem 1.2rem;position:relative;font-size:0.86rem;color:#444;border-bottom:1px solid rgba(224,216,208,0.4)}
+    .dp-ul li:last-child{border-bottom:none}
+    .dp-ul li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:5px;height:5px;border-radius:50%;background:#d4a574}
+    .dp-info{background:rgba(212,165,116,0.08);border-left:3px solid #d4a574;border-radius:0 7px 7px 0;padding:0.8rem 1rem;margin:0.7rem 0}
+    .dp-info p{font-size:0.84rem;color:#554030;margin:0;line-height:1.55}
+    .dp-warn{background:#fffbf0;border-left:3px solid #f0b429;border-radius:0 7px 7px 0;padding:0.8rem 1rem;margin:0.7rem 0}
+    .dp-warn p{font-size:0.84rem;color:#7a5c00;margin:0}
+    .dp-table{width:100%;border-collapse:collapse;margin:0.7rem 0;font-size:0.8rem}
+    .dp-table th{background:#222;color:#d4a574;padding:0.5rem 0.8rem;text-align:left;font-weight:600}
+    .dp-table td{padding:0.5rem 0.8rem;border-bottom:1px solid #e0d8d0;color:#444;vertical-align:top}
+    .dp-table tr:last-child td{border-bottom:none}.dp-table tr:nth-child(even) td{background:#faf9f7}
+    .dp-rights-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:0.7rem;margin:0.7rem 0}
+    .dp-right-card{background:#faf9f7;border:1px solid #e0d8d0;border-radius:8px;padding:0.9rem;transition:border-color 0.2s}
+    .dp-right-card:hover{border-color:#d4a574}
+    .dp-right-icon{font-size:1.3rem;margin-bottom:0.35rem}
+    .dp-right-name{font-weight:700;font-size:0.82rem;margin-bottom:0.2rem;color:#222}
+    .dp-right-desc{font-size:0.76rem;color:#666;line-height:1.45}
+    .dp-contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:1rem;background:#222;border-radius:9px;padding:1.2rem;margin-top:0.7rem}
+    .dp-ci-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.4);margin-bottom:0.15rem}
+    .dp-ci-val{font-size:0.88rem;color:#fff;font-weight:500}.dp-ci-val a{color:#d4a574}
+
+    /* Dev Docs */
+    .dd-layout{display:flex;gap:0;min-height:380px}
+    .dd-sidebar{width:190px;flex-shrink:0;border-right:1px solid #e0d8d0;padding:0.3rem 0}
+    .dd-sb-group{margin-bottom:0.9rem}
+    .dd-sb-title{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#d4a574;padding:0 0.65rem;margin-bottom:0.25rem}
+    .dd-sb-btn{display:block;width:100%;text-align:left;padding:0.3rem 0.65rem;background:none;border:none;font-family:'Lato',sans-serif;font-size:0.8rem;color:#666;cursor:pointer;border-radius:4px;transition:all 0.12s}
+    .dd-sb-btn:hover{background:rgba(212,165,116,0.1);color:#222}
+    .dd-sb-btn.active{background:rgba(212,165,116,0.15);color:#d4a574;font-weight:600}
+    .dd-content{flex:1;padding:0 0 0 1.1rem;min-width:0;overflow-y:auto;max-height:58vh}
+    .dd-sec{display:none}.dd-sec.active{display:block;animation:ddFade 0.2s ease}
+    @keyframes ddFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+    .dd-h1{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#222;margin-bottom:0.25rem}
+    .dd-h1-sub{font-size:0.84rem;color:#666;margin-bottom:1rem;line-height:1.6}
+    .dd-h2{font-family:'Playfair Display',serif;font-size:1.05rem;margin:1.3rem 0 0.6rem;padding-bottom:0.4rem;border-bottom:1px solid #e0d8d0;color:#222}
+    .dd-h3{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#d4a574;margin:0.9rem 0 0.35rem}
+    .dd-p{font-size:0.86rem;color:#444;margin-bottom:0.75rem;line-height:1.7}.dd-p strong{color:#222}
+    .dd-ul{list-style:none;padding:0;margin:0.3rem 0 0.7rem}
+    .dd-ul li{padding:0.28rem 0 0.28rem 1.1rem;position:relative;font-size:0.84rem;color:#444}
+    .dd-ul li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:5px;height:5px;border-radius:50%;background:#d4a574}
+    .dd-table{width:100%;border-collapse:collapse;margin:0.6rem 0;font-size:0.78rem}
+    .dd-table th{background:#222;color:#d4a574;padding:0.45rem 0.7rem;text-align:left;font-weight:600}
+    .dd-table td{padding:0.45rem 0.7rem;border-bottom:1px solid #e0d8d0;color:#444;vertical-align:top}
+    .dd-table tr:last-child td{border-bottom:none}.dd-table tr:nth-child(even) td{background:#faf9f7}
+    .dd-code-wrap{background:#0d1117;border:1px solid #30363d;border-radius:8px;margin:0.6rem 0;overflow:hidden}
+    .dd-code-head{display:flex;align-items:center;justify-content:space-between;padding:0.45rem 0.85rem;background:#161b22;border-bottom:1px solid #30363d}
+    .dd-code-lang{font-family:monospace;font-size:0.68rem;color:#8b949e}
+    .dd-copy-btn{font-size:0.68rem;padding:0.18rem 0.5rem;border-radius:4px;background:rgba(255,255,255,0.06);border:1px solid #30363d;color:#8b949e;cursor:pointer;font-family:'Lato',sans-serif;transition:all 0.12s}
+    .dd-copy-btn:hover{background:rgba(255,255,255,0.1);color:#ccc}
+    .dd-code-wrap pre{padding:0.85rem 0.95rem;overflow-x:auto;font-family:monospace;font-size:0.76rem;line-height:1.6;color:#e6edf3;margin:0}
+    .dd-info{background:rgba(212,165,116,0.08);border-left:3px solid #d4a574;border-radius:0 6px 6px 0;padding:0.75rem 0.95rem;margin:0.6rem 0}
+    .dd-info p{font-size:0.82rem;color:#554030;margin:0;line-height:1.5}
+    .dd-warn{background:#fffbf0;border-left:3px solid #f0b429;border-radius:0 6px 6px 0;padding:0.75rem 0.95rem;margin:0.6rem 0}
+    .dd-warn p{font-size:0.82rem;color:#7a5c00;margin:0}
+    .dd-ver-row{display:flex;gap:0.4rem;flex-wrap:wrap;margin:0.4rem 0 0.9rem}
+    .dd-ver-tag{font-family:monospace;font-size:0.7rem;padding:0.22rem 0.6rem;border-radius:4px;border:1px solid}
+    .dd-ver-tag.green{background:rgba(46,160,67,0.12);border-color:rgba(46,160,67,0.35);color:#2ea043}
+    .dd-ver-tag.blue{background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.3);color:#2563eb}
+    .dd-ver-tag.orange{background:rgba(227,179,65,0.1);border-color:rgba(227,179,65,0.3);color:#b45309}
+    .dd-file-tree{font-family:monospace;font-size:0.76rem;background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:0.9rem 1.1rem;line-height:1.85;color:#e6edf3;overflow-x:auto}
+    .dd-ft-dir{color:#58a6ff}.dd-ft-comment{color:#8b949e}
+    .dd-cl-item{display:flex;gap:0.7rem;padding:0.7rem 0;border-bottom:1px solid #e0d8d0}
+    .dd-cl-item:last-child{border-bottom:none}
+    .dd-cl-ver{font-family:monospace;font-size:0.8rem;font-weight:700;color:#d4a574;min-width:55px}
+    .dd-cl-date{font-size:0.72rem;color:#999;margin-bottom:0.18rem}
+    .dd-cl-text{font-size:0.82rem;color:#444;margin-bottom:0.1rem}
+    .dd-cl-tag{display:inline-block;font-size:0.65rem;font-weight:700;padding:0.07rem 0.42rem;border-radius:3px;margin-right:0.2rem}
+    .dd-cl-new{background:rgba(46,160,67,0.15);color:#2ea043}
+    .dd-cl-fix{background:rgba(239,68,68,0.12);color:#dc2626}
+    .dd-cl-imp{background:rgba(59,130,246,0.12);color:#2563eb}
+    @media(max-width:600px){
+      .dd-layout{flex-direction:column}
+      .dd-sidebar{width:100%;border-right:none;border-bottom:1px solid #e0d8d0;padding:0.5rem 0;display:flex;gap:0.3rem;flex-wrap:wrap}
+      .dd-sb-group{margin-bottom:0}.dd-sb-title{display:none}
+      .dd-sb-btn{padding:0.28rem 0.55rem;font-size:0.76rem}
+      .dd-content{padding:0.7rem 0 0;max-height:none}
+    }
+
     .booking-fixed {
       position: fixed; bottom: 20px; right: 20px;
       background: #222; color: white;
@@ -794,6 +885,8 @@
       <div class="footer-legal">
         <a onclick="openLegalModal('tos')">Пользовательское соглашение</a>
         <a onclick="openLegalModal('privacy')">Политика конфиденциальности</a>
+        <a onclick="openLegalModal('dataprocessing')">Политика обработки данных</a>
+        <a onclick="openLegalModal('devdocs')">Документация разработчика</a>
       </div>
     </div>
   </footer>
@@ -1511,15 +1604,29 @@
     });
 
     // ═══════════════════════════════════════════════
-    // ЮРИДИЧЕСКИЕ МОДАЛКИ
+    // ЮРИДИЧЕСКИЕ МОДАЛКИ (обновлено: +dataprocessing, +devdocs)
     // ═══════════════════════════════════════════════
     function openLegalModal(type) {
-      const id = type === 'tos' ? 'legalModalTos' : 'legalModalPrivacy';
+      const ids = {
+        tos: 'legalModalTos',
+        privacy: 'legalModalPrivacy',
+        dataprocessing: 'legalModalDataprocessing',
+        devdocs: 'legalModalDevdocs'
+      };
+      const id = ids[type];
+      if (!id) return;
       document.getElementById(id).style.display = 'block';
       document.body.style.overflow = 'hidden';
     }
     function closeLegalModal(type) {
-      const id = type === 'tos' ? 'legalModalTos' : 'legalModalPrivacy';
+      const ids = {
+        tos: 'legalModalTos',
+        privacy: 'legalModalPrivacy',
+        dataprocessing: 'legalModalDataprocessing',
+        devdocs: 'legalModalDevdocs'
+      };
+      const id = ids[type];
+      if (!id) return;
       document.getElementById(id).style.display = 'none';
       document.body.style.overflow = 'auto';
     }
@@ -1528,6 +1635,36 @@
         if (e.target === this) { this.style.display = 'none'; document.body.style.overflow = 'auto'; }
       });
     });
+
+    // ═══════════════════════════════════════════════
+    // ПОЛИТИКА ОБРАБОТКИ ДАННЫХ — скролл к разделу
+    // ═══════════════════════════════════════════════
+    function dpScroll(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ═══════════════════════════════════════════════
+    // ДОКУМЕНТАЦИЯ РАЗРАБОТЧИКА — переключение раздела
+    // ═══════════════════════════════════════════════
+    function ddShow(id, btn) {
+      document.querySelectorAll('.dd-sec').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.dd-sb-btn').forEach(el => el.classList.remove('active'));
+      const sec = document.getElementById('dd-' + id);
+      if (sec) sec.classList.add('active');
+      if (btn) btn.classList.add('active');
+      const content = document.querySelector('.dd-content');
+      if (content) content.scrollTop = 0;
+    }
+    function ddCopy(btn) {
+      const pre = btn.closest('.dd-code-wrap').querySelector('pre');
+      if (!pre) return;
+      navigator.clipboard.writeText(pre.innerText).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = '✓ Готово';
+        setTimeout(() => btn.textContent = orig, 2000);
+      });
+    }
 
     // ═══════════════════════════════════════════════
     // ЗАКРЫТИЕ ПО ESC
@@ -1732,5 +1869,629 @@
       reader.readAsDataURL(file);
     }
   </script>
+  <!-- ══════════════════════════════════════════════════════
+       МОДАЛЬНОЕ ОКНО: ПОЛИТИКА ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ
+       ══════════════════════════════════════════════════════ -->
+  <div class="legal-modal" id="legalModalDataprocessing">
+    <div class="legal-modal-content" style="max-width:900px">
+      <span class="legal-modal-close" onclick="closeLegalModal('dataprocessing')">&times;</span>
+      <div class="legal-modal-header">
+        <h3>Политика обработки персональных данных</h3>
+        <div class="legal-modal-meta">ООО «ЗЕБ Китчен» &nbsp;·&nbsp; г. Москва, ул. Гастрономическая, д. 15 &nbsp;·&nbsp; Редакция от 8 апреля 2026 г.</div>
+      </div>
+      <div class="legal-modal-body">
+
+        <!-- TOC -->
+        <div class="dp-toc-box">
+          <div class="dp-toc-bar">Содержание</div>
+          <div class="dp-toc-grid">
+            <div class="dp-toc-item" onclick="dpScroll('dp1')"><span class="dp-toc-num">1.</span>Термины и определения</div>
+            <div class="dp-toc-item" onclick="dpScroll('dp2')"><span class="dp-toc-num">2.</span>Общие положения</div>
+            <div class="dp-toc-item" onclick="dpScroll('dp3')"><span class="dp-toc-num">3.</span>Состав персональных данных</div>
+            <div class="dp-toc-item" onclick="dpScroll('dp4')"><span class="dp-toc-num">4.</span>Цели обработки</div>
+            <div class="dp-toc-item" onclick="dpScroll('dp5')"><span class="dp-toc-num">5.</span>Сроки хранения</div>
+            <div class="dp-toc-item" onclick="dpScroll('dp6')"><span class="dp-toc-num">6.</span>Передача третьим лицам</div>
+            <div class="dp-toc-item" onclick="dpScroll('dp7')"><span class="dp-toc-num">7.</span>Права субъекта</div>
+            <div class="dp-toc-item" onclick="dpScroll('dp8')"><span class="dp-toc-num">8.</span>Меры безопасности</div>
+            <div class="dp-toc-item" onclick="dpScroll('dp9')"><span class="dp-toc-num">9.</span>Cookies</div>
+            <div class="dp-toc-item" onclick="dpScroll('dp10')"><span class="dp-toc-num">10.</span>Ответственность</div>
+            <div class="dp-toc-item" onclick="dpScroll('dp11')"><span class="dp-toc-num">11.</span>Разрешение споров</div>
+            <div class="dp-toc-item" onclick="dpScroll('dp12')"><span class="dp-toc-num">12.</span>Контакты</div>
+          </div>
+        </div>
+
+        <!-- 1 -->
+        <div class="dp-sec" id="dp1">
+          <div class="dp-sec-head"><div class="dp-sec-num">1</div><div class="dp-sec-title">Термины и определения</div></div>
+          <p class="dp-p"><strong>«Оператор»</strong> — ООО «ЗЕБ Китчен», г. Москва, ул. Гастрономическая, д. 15 — юридическое лицо, самостоятельно организующее и осуществляющее обработку персональных данных.</p>
+          <p class="dp-p"><strong>«Персональные данные» (ПД)</strong> — любая информация, относящаяся прямо или косвенно к определённому физическому лицу (субъекту ПД).</p>
+          <p class="dp-p"><strong>«Обработка ПД»</strong> — любое действие с ПД: сбор, запись, систематизация, накопление, хранение, уточнение, извлечение, использование, передача, обезличивание, блокирование, удаление, уничтожение.</p>
+          <p class="dp-p"><strong>«Сайт»</strong> — веб-ресурс по адресу <em>kirillzabaldin706-png.github.io/ZEBKITCHEN.io/</em>, принадлежащий Оператору.</p>
+          <p class="dp-p"><strong>«Пользователь»</strong> — физическое лицо, получающее доступ к Сайту, бронирующее столик или оформляющее заказ.</p>
+          <p class="dp-p"><strong>«Cookies»</strong> — небольшие фрагменты данных, сохраняемые браузером Пользователя при посещении Сайта.</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="dp-sec" id="dp2">
+          <div class="dp-sec-head"><div class="dp-sec-num">2</div><div class="dp-sec-title">Общие положения</div></div>
+          <div class="dp-info"><p>Настоящая Политика разработана в соответствии с Конституцией РФ, Гражданским кодексом РФ и Федеральным законом № 152-ФЗ «О персональных данных» от 25.07.2006 г.</p></div>
+          <p class="dp-p">2.1. Использование Сайта означает безоговорочное согласие Пользователя с настоящей Политикой. В случае несогласия — Пользователь обязан прекратить использование Сайта.</p>
+          <p class="dp-p">2.2. Политика применяется исключительно к Сайту ZEB Kitchen. Оператор не несёт ответственности за политику конфиденциальности сторонних ресурсов, доступных по ссылкам.</p>
+          <p class="dp-p">2.3. Оператор вправе вносить изменения в Политику без предварительного уведомления. Актуальная редакция всегда доступна на сайте.</p>
+          <p class="dp-p">2.4. Оператор не проверяет достоверность ПД, предоставляемых Пользователем, однако принимает разумные меры по их защите.</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="dp-sec" id="dp3">
+          <div class="dp-sec-head"><div class="dp-sec-num">3</div><div class="dp-sec-title">Состав обрабатываемых персональных данных</div></div>
+          <p class="dp-p">Оператор обрабатывает следующие категории персональных данных:</p>
+          <table class="dp-table">
+            <thead><tr><th>Категория</th><th>Конкретные данные</th><th>Основание сбора</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Идентификационные</strong></td><td>Имя, фамилия</td><td>Форма бронирования / заказа</td></tr>
+              <tr><td><strong>Контактные</strong></td><td>Номер телефона, e-mail</td><td>Форма бронирования, обратная связь</td></tr>
+              <tr><td><strong>Адресные</strong></td><td>Адрес доставки</td><td>Оформление заказа с доставкой</td></tr>
+              <tr><td><strong>Платёжные</strong></td><td>Маскированный номер карты (последние 4 цифры), срок действия, имя держателя</td><td>Оплата заказа онлайн</td></tr>
+              <tr><td><strong>Технические</strong></td><td>IP-адрес, браузер, ОС, история посещений</td><td>Автоматически при посещении Сайта</td></tr>
+              <tr><td><strong>Поведенческие</strong></td><td>История заказов, бронирований, просмотренные блюда</td><td>Взаимодействие с Сайтом</td></tr>
+            </tbody>
+          </table>
+          <div class="dp-warn"><p>⚠ Оператор <strong>не собирает</strong> специальные категории ПД: расовую принадлежность, политические взгляды, биометрические данные, сведения о здоровье.</p></div>
+        </div>
+
+        <!-- 4 -->
+        <div class="dp-sec" id="dp4">
+          <div class="dp-sec-head"><div class="dp-sec-num">4</div><div class="dp-sec-title">Цели обработки персональных данных</div></div>
+          <ul class="dp-ul">
+            <li>Подтверждение и обработка бронирования столика на указанные дату и время</li>
+            <li>Приём и выполнение онлайн-заказов блюд и напитков из меню</li>
+            <li>Направление подтверждений бронирования и уведомлений о статусе заказа</li>
+            <li>Информирование об акциях и новинках меню (при наличии явного согласия)</li>
+            <li>Обеспечение безопасности Сайта и предотвращение мошеннических действий</li>
+            <li>Аналитика посещаемости и улучшение пользовательского опыта</li>
+            <li>Предоставление клиентской поддержки</li>
+            <li>Соблюдение требований законодательства РФ</li>
+          </ul>
+          <div class="dp-h3">Правовые основания обработки</div>
+          <p class="dp-p">Обработка осуществляется на основании: (а) <strong>согласия субъекта</strong> — при заполнении форм; (б) <strong>исполнения договора</strong> — для обработки заказов и бронирований; (в) <strong>законного интереса</strong> — для безопасности и аналитики.</p>
+        </div>
+
+        <!-- 5 -->
+        <div class="dp-sec" id="dp5">
+          <div class="dp-sec-head"><div class="dp-sec-num">5</div><div class="dp-sec-title">Сроки хранения данных</div></div>
+          <table class="dp-table">
+            <thead><tr><th>Тип данных</th><th>Срок хранения</th></tr></thead>
+            <tbody>
+              <tr><td>Данные бронирований</td><td>3 года с момента последней операции</td></tr>
+              <tr><td>История заказов</td><td>3 года с момента последней операции</td></tr>
+              <tr><td>Платёжная информация (маскированная)</td><td>До отзыва согласия или 5 лет</td></tr>
+              <tr><td>Технические логи</td><td>90 дней</td></tr>
+              <tr><td>Данные подписки на рассылку</td><td>До отзыва согласия</td></tr>
+            </tbody>
+          </table>
+          <p class="dp-p">По истечении срока хранения ПД подлежат уничтожению или обезличиванию в течение 30 дней.</p>
+        </div>
+
+        <!-- 6 -->
+        <div class="dp-sec" id="dp6">
+          <div class="dp-sec-head"><div class="dp-sec-num">6</div><div class="dp-sec-title">Передача данных третьим лицам</div></div>
+          <div class="dp-warn"><p>Оператор <strong>не продаёт и не передаёт</strong> ПД третьим лицам в коммерческих целях.</p></div>
+          <div class="dp-h3">Исключения — возможная передача</div>
+          <ul class="dp-ul">
+            <li><strong>Платёжные операторы</strong> — для проведения транзакций (только необходимый минимум, регулируется PCI DSS)</li>
+            <li><strong>Сервисы доставки</strong> — имя и адрес получателя при заказе с доставкой</li>
+            <li><strong>Государственные органы</strong> — исключительно на основании законодательства РФ</li>
+            <li><strong>Аналитические сервисы</strong> — обезличенные данные без возможности идентификации личности</li>
+          </ul>
+        </div>
+
+        <!-- 7 -->
+        <div class="dp-sec" id="dp7">
+          <div class="dp-sec-head"><div class="dp-sec-num">7</div><div class="dp-sec-title">Права субъекта персональных данных</div></div>
+          <p class="dp-p">В соответствии с ФЗ-152 Пользователь имеет следующие права:</p>
+          <div class="dp-rights-grid">
+            <div class="dp-right-card"><div class="dp-right-icon">📋</div><div class="dp-right-name">Право на доступ</div><div class="dp-right-desc">Получить подтверждение факта обработки и копию своих ПД</div></div>
+            <div class="dp-right-card"><div class="dp-right-icon">✏️</div><div class="dp-right-name">Право на уточнение</div><div class="dp-right-desc">Требовать исправления неточных или неполных данных</div></div>
+            <div class="dp-right-card"><div class="dp-right-icon">🗑️</div><div class="dp-right-name">Право на удаление</div><div class="dp-right-desc">Потребовать удаления ПД при наличии законных оснований</div></div>
+            <div class="dp-right-card"><div class="dp-right-icon">🚫</div><div class="dp-right-name">Право на возражение</div><div class="dp-right-desc">Возразить против обработки в маркетинговых целях</div></div>
+            <div class="dp-right-card"><div class="dp-right-icon">⏸️</div><div class="dp-right-name">Право на ограничение</div><div class="dp-right-desc">Ограничить обработку в период рассмотрения возражения</div></div>
+            <div class="dp-right-card"><div class="dp-right-icon">↩️</div><div class="dp-right-name">Право на отзыв</div><div class="dp-right-desc">Отозвать ранее данное согласие в любое время</div></div>
+          </div>
+          <div class="dp-info"><p>Для реализации прав направьте запрос на <strong>support@zeb-kitchen.ru</strong> или обратитесь лично по адресу: г. Москва, ул. Гастрономическая, д. 15. Срок рассмотрения — <strong>30 календарных дней</strong>.</p></div>
+        </div>
+
+        <!-- 8 -->
+        <div class="dp-sec" id="dp8">
+          <div class="dp-sec-head"><div class="dp-sec-num">8</div><div class="dp-sec-title">Меры защиты персональных данных</div></div>
+          <div class="dp-h3">Технические меры</div>
+          <ul class="dp-ul">
+            <li>Передача данных по протоколу HTTPS (TLS 1.2/1.3)</li>
+            <li>Хэширование паролей административного доступа (SHA-256)</li>
+            <li>Маскирование платёжных данных — хранятся только последние 4 цифры карты</li>
+            <li>Ограничение доступа к базам данных по принципу минимальных привилегий</li>
+            <li>Регулярное резервное копирование с шифрованием архивов</li>
+          </ul>
+          <div class="dp-h3">Организационные меры</div>
+          <ul class="dp-ul">
+            <li>Назначение ответственного за обработку ПД</li>
+            <li>Обучение сотрудников, имеющих доступ к ПД</li>
+            <li>Подписание соглашений о конфиденциальности с контрагентами</li>
+            <li>Процедура уведомления субъектов при инциденте (в течение 72 часов)</li>
+          </ul>
+        </div>
+
+        <!-- 9 -->
+        <div class="dp-sec" id="dp9">
+          <div class="dp-sec-head"><div class="dp-sec-num">9</div><div class="dp-sec-title">Использование Cookies</div></div>
+          <table class="dp-table">
+            <thead><tr><th>Тип</th><th>Назначение</th><th>Срок жизни</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Обязательные</strong></td><td>Работа корзины заказов, сессия Admin Panel</td><td>Сессия / 7 дней</td></tr>
+              <tr><td><strong>Функциональные</strong></td><td>Сохранённые карты, история заказов (localStorage)</td><td>До явного удаления</td></tr>
+              <tr><td><strong>Аналитические</strong></td><td>Статистика посещаемости (обезличенные данные)</td><td>До 13 месяцев</td></tr>
+            </tbody>
+          </table>
+          <p class="dp-p">Пользователь вправе отключить Cookies в настройках браузера. Это может повлиять на функциональность Сайта (корзина, сохранённые карты).</p>
+        </div>
+
+        <!-- 10 -->
+        <div class="dp-sec" id="dp10">
+          <div class="dp-sec-head"><div class="dp-sec-num">10</div><div class="dp-sec-title">Ответственность сторон</div></div>
+          <p class="dp-p">10.1. Оператор несёт ответственность за неправомерное использование ПД в соответствии с законодательством РФ, включая ФЗ-152 и КоАП РФ (ст. 13.11).</p>
+          <p class="dp-p">10.2. Оператор <strong>не несёт ответственности</strong>, если ПД стали публичным достоянием до их утраты; были получены от третьей стороны; разглашены с согласия самого субъекта ПД.</p>
+          <p class="dp-p">10.3. Пользователь несёт ответственность за достоверность предоставленных данных.</p>
+        </div>
+
+        <!-- 11 -->
+        <div class="dp-sec" id="dp11">
+          <div class="dp-sec-head"><div class="dp-sec-num">11</div><div class="dp-sec-title">Разрешение споров</div></div>
+          <p class="dp-p">11.1. До обращения в суд обязательным является предъявление письменной претензии о добровольном урегулировании спора.</p>
+          <p class="dp-p">11.2. Получатель претензии обязан в течение <strong>30 календарных дней</strong> письменно уведомить заявителя о результатах рассмотрения.</p>
+          <p class="dp-p">11.3. При недостижении соглашения спор передаётся в суд по месту нахождения Оператора в соответствии с законодательством РФ.</p>
+          <p class="dp-p">11.4. Жалобы на нарушения в области ПД можно направить в Роскомнадзор: <strong>rkn.gov.ru</strong>.</p>
+        </div>
+
+        <!-- 12 -->
+        <div class="dp-sec" id="dp12">
+          <div class="dp-sec-head"><div class="dp-sec-num">12</div><div class="dp-sec-title">Контакты оператора данных</div></div>
+          <div class="dp-contact-grid">
+            <div><div class="dp-ci-label">Оператор</div><div class="dp-ci-val">ООО «ЗЕБ Китчен»</div></div>
+            <div><div class="dp-ci-label">Адрес</div><div class="dp-ci-val">г. Москва, ул. Гастрономическая, д. 15</div></div>
+            <div><div class="dp-ci-label">E-mail</div><div class="dp-ci-val"><a href="mailto:support@zeb-kitchen.ru">support@zeb-kitchen.ru</a></div></div>
+            <div><div class="dp-ci-label">Телефон</div><div class="dp-ci-val"><a href="tel:+74951234567">+7 (495) 123-45-67</a></div></div>
+            <div><div class="dp-ci-label">Режим работы</div><div class="dp-ci-val">Пн–Чт 12:00–23:00<br>Пт–Сб 12:00–00:00<br>Вс 12:00–22:00</div></div>
+            <div><div class="dp-ci-label">Версия документа</div><div class="dp-ci-val">Редакция от 8 апреля 2026 г.</div></div>
+          </div>
+        </div>
+
+      </div><!-- /legal-modal-body -->
+      <div class="legal-modal-footer">
+        <span class="legal-modal-footer-note">© 2026 ZEB Kitchen. Все права защищены.</span>
+        <button class="cta-button" onclick="closeLegalModal('dataprocessing')">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       МОДАЛЬНОЕ ОКНО: ДОКУМЕНТАЦИЯ РАЗРАБОТЧИКА
+       ══════════════════════════════════════════════════════ -->
+  <div class="legal-modal" id="legalModalDevdocs">
+    <div class="legal-modal-content" style="max-width:960px">
+      <span class="legal-modal-close" onclick="closeLegalModal('devdocs')">&times;</span>
+      <div class="legal-modal-header">
+        <h3>Документация разработчика</h3>
+        <div class="legal-modal-meta">ZEB Kitchen &nbsp;·&nbsp; Frontend &amp; архитектура &nbsp;·&nbsp; v1.3.0 &nbsp;·&nbsp; Апрель 2026</div>
+      </div>
+      <div class="legal-modal-body" style="max-height:68vh">
+
+        <div class="dd-layout">
+          <!-- SIDEBAR -->
+          <div class="dd-sidebar">
+            <div class="dd-sb-group">
+              <div class="dd-sb-title">Начало</div>
+              <button class="dd-sb-btn active" onclick="ddShow('overview',this)">Обзор проекта</button>
+              <button class="dd-sb-btn" onclick="ddShow('quickstart',this)">Быстрый старт</button>
+              <button class="dd-sb-btn" onclick="ddShow('structure',this)">Структура файлов</button>
+            </div>
+            <div class="dd-sb-group">
+              <div class="dd-sb-title">Архитектура</div>
+              <button class="dd-sb-btn" onclick="ddShow('frontend',this)">Frontend</button>
+              <button class="dd-sb-btn" onclick="ddShow('storage',this)">Хранилище данных</button>
+              <button class="dd-sb-btn" onclick="ddShow('styles',this)">Стили / CSS</button>
+            </div>
+            <div class="dd-sb-group">
+              <div class="dd-sb-title">Модули</div>
+              <button class="dd-sb-btn" onclick="ddShow('menu',this)">Меню</button>
+              <button class="dd-sb-btn" onclick="ddShow('cart',this)">Корзина</button>
+              <button class="dd-sb-btn" onclick="ddShow('payment',this)">Оплата</button>
+              <button class="dd-sb-btn" onclick="ddShow('admin',this)">Admin Panel</button>
+            </div>
+            <div class="dd-sb-group">
+              <div class="dd-sb-title">Деплой</div>
+              <button class="dd-sb-btn" onclick="ddShow('deploy',this)">GitHub Pages</button>
+              <button class="dd-sb-btn" onclick="ddShow('security',this)">Безопасность</button>
+              <button class="dd-sb-btn" onclick="ddShow('changelog',this)">Changelog</button>
+            </div>
+          </div>
+
+          <!-- CONTENT -->
+          <div class="dd-content">
+
+            <!-- OVERVIEW -->
+            <div class="dd-sec active" id="dd-overview">
+              <h2 class="dd-h1">Обзор проекта</h2>
+              <p class="dd-h1-sub">ZEB Kitchen — одностраничный сайт ресторана с интерактивным меню, корзиной, платёжной формой, бронированием и Admin Panel.</p>
+              <div class="dd-ver-row">
+                <span class="dd-ver-tag green">v1.3.0 stable</span>
+                <span class="dd-ver-tag blue">HTML + Vanilla JS</span>
+                <span class="dd-ver-tag orange">localStorage API</span>
+              </div>
+              <h2 class="dd-h2">Технологический стек</h2>
+              <table class="dd-table">
+                <thead><tr><th>Слой</th><th>Технология</th><th>Примечание</th></tr></thead>
+                <tbody>
+                  <tr><td>Разметка</td><td>HTML5</td><td>Семантика, WAI-ARIA</td></tr>
+                  <tr><td>Стили</td><td>CSS3</td><td>Custom Properties, Grid, Flexbox</td></tr>
+                  <tr><td>Логика</td><td>Vanilla JS (ES2020)</td><td>Без фреймворков и сборки</td></tr>
+                  <tr><td>Шрифты</td><td>Google Fonts</td><td>Playfair Display + Lato</td></tr>
+                  <tr><td>Хранилище</td><td>localStorage</td><td>Меню, карты, транзакции</td></tr>
+                  <tr><td>Хостинг</td><td>GitHub Pages</td><td>Статический, HTTPS</td></tr>
+                  <tr><td>Криптография</td><td>Web Crypto API</td><td>SHA-256 хэш пароля</td></tr>
+                  <tr><td>Бронирование</td><td>Restoplace виджет</td><td>Внешний JS-скрипт</td></tr>
+                  <tr><td>Карты</td><td>Яндекс.Карты</td><td>iframe-виджет</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- QUICKSTART -->
+            <div class="dd-sec" id="dd-quickstart">
+              <h2 class="dd-h1">Быстрый старт</h2>
+              <p class="dd-h1-sub">Проект работает без сборки. Откройте index.html через локальный HTTP-сервер.</p>
+              <div class="dd-code-wrap">
+                <div class="dd-code-head"><span class="dd-code-lang">bash</span><button class="dd-copy-btn" onclick="ddCopy(this)">Копировать</button></div>
+                <pre># Клонировать репозиторий
+git clone https://github.com/kirillzabaldin706-png/ZEBKITCHEN.io.git
+cd ZEBKITCHEN.io
+
+# VS Code → Live Server → "Go Live"
+# или через Python:
+python -m http.server 8080
+# → http://localhost:8080</pre>
+              </div>
+              <div class="dd-warn"><p>⚠ Не открывайте index.html напрямую через <code>file://</code> — браузеры блокируют Web Crypto API при таком запуске.</p></div>
+              <h2 class="dd-h2">Смена пароля Admin Panel</h2>
+              <div class="dd-code-wrap">
+                <div class="dd-code-head"><span class="dd-code-lang">javascript</span><button class="dd-copy-btn" onclick="ddCopy(this)">Копировать</button></div>
+                <pre>// В консоли браузера (F12):
+const hash = await crypto.subtle.digest(
+  'SHA-256',
+  new TextEncoder().encode('ВАШ_НОВЫЙ_ПАРОЛЬ')
+);
+console.log(
+  [...new Uint8Array(hash)]
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('')
+);
+// Скопируйте результат → вставьте в переменную ADMIN_HASH</pre>
+              </div>
+            </div>
+
+            <!-- STRUCTURE -->
+            <div class="dd-sec" id="dd-structure">
+              <h2 class="dd-h1">Структура файлов</h2>
+              <div class="dd-file-tree">
+<span class="dd-ft-dir">ZEBKITCHEN.io/</span>
+├── index.html           <span class="dd-ft-comment">← Основной файл (HTML + CSS + JS)</span>
+├── <span class="dd-ft-dir">images/</span>
+│   ├── r.jpg            <span class="dd-ft-comment">← Hero-фон</span>
+│   ├── aaa.jpg          <span class="dd-ft-comment">← Интерьер</span>
+│   ├── ban.jpg          <span class="dd-ft-comment">← Шеф-повар</span>
+│   ├── big.jpg          <span class="dd-ft-comment">← Управляющая</span>
+│   ├── bruschetta.jpg   <span class="dd-ft-comment">← Брускетта</span>
+│   ├── main.jpg         <span class="dd-ft-comment">← Тартар</span>
+│   ├── min.jpg          <span class="dd-ft-comment">← Форель</span>
+│   ├── man.jpg          <span class="dd-ft-comment">← Стейк</span>
+│   ├── sin.jpg          <span class="dd-ft-comment">← Тирамису</span>
+│   ├── san.jpg          <span class="dd-ft-comment">← Чизкейк</span>
+│   ├── vin.jpg          <span class="dd-ft-comment">← Кофе</span>
+│   ├── van.jpg          <span class="dd-ft-comment">← Коктейль</span>
+│   ├── Ct.jpg           <span class="dd-ft-comment">← Новость: летний сет</span>
+│   ├── Cofe.jpg         <span class="dd-ft-comment">← Новость: кофе</span>
+│   └── Hap.jpg          <span class="dd-ft-comment">← Новость: день рождения</span>
+└── README.md</div>
+            </div>
+
+            <!-- FRONTEND -->
+            <div class="dd-sec" id="dd-frontend">
+              <h2 class="dd-h1">Frontend-архитектура</h2>
+              <p class="dd-h1-sub">Весь код (HTML + CSS + JS) находится в одном файле <code>index.html</code>.</p>
+              <h2 class="dd-h2">Секции страницы</h2>
+              <table class="dd-table">
+                <thead><tr><th>Секция</th><th>ID</th><th>Назначение</th></tr></thead>
+                <tbody>
+                  <tr><td>Hero</td><td><code>#hero</code></td><td>Главный экран с промо-карточками</td></tr>
+                  <tr><td>Меню</td><td><code>#menu</code></td><td>Вкладки + динамические карточки блюд</td></tr>
+                  <tr><td>О нас</td><td><code>#about</code></td><td>Философия, команда, интерьер</td></tr>
+                  <tr><td>Бронирование</td><td><code>#booking</code></td><td>Виджет Restoplace</td></tr>
+                  <tr><td>Контакты</td><td><code>#contacts</code></td><td>Адрес, телефоны, карта</td></tr>
+                  <tr><td>Новости</td><td><code>#news</code></td><td>Карточки с модальными окнами</td></tr>
+                  <tr><td>Отзывы</td><td><code>#reviews</code></td><td>Горизонтальный скролл</td></tr>
+                </tbody>
+              </table>
+              <h2 class="dd-h2">Защита от XSS</h2>
+              <div class="dd-code-wrap">
+                <div class="dd-code-head"><span class="dd-code-lang">javascript</span><button class="dd-copy-btn" onclick="ddCopy(this)">Копировать</button></div>
+                <pre>// Экранирование для HTML-атрибутов (XSS-защита)
+function esc(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+// Экранирование для onclick-атрибутов
+function escJs(s) {
+  return String(s)
+    .replace(/\\/g, '\\\\')
+    .replace(/'/g, "\\'");
+}</pre>
+              </div>
+            </div>
+
+            <!-- STORAGE -->
+            <div class="dd-sec" id="dd-storage">
+              <h2 class="dd-h1">Хранилище данных</h2>
+              <p class="dd-h1-sub">Все данные хранятся в <code>localStorage</code> браузера. Сервер не используется.</p>
+              <table class="dd-table">
+                <thead><tr><th>Ключ</th><th>Содержимое</th></tr></thead>
+                <tbody>
+                  <tr><td><code>zeb_menu</code></td><td>Объект с категориями блюд: <code>{starters, mains, desserts, drinks}</code></td></tr>
+                  <tr><td><code>zeb_payment_db_v1</code></td><td>Объект: <code>{cards: Card[], transactions: Tx[]}</code></td></tr>
+                </tbody>
+              </table>
+              <div class="dd-code-wrap">
+                <div class="dd-code-head"><span class="dd-code-lang">typescript — схема данных</span><button class="dd-copy-btn" onclick="ddCopy(this)">Копировать</button></div>
+                <pre>interface MenuItem {
+  id: string;       // 's1', 'm' + Date.now()
+  name: string;     // Название блюда
+  desc: string;     // Описание и состав
+  price: number;    // Цена в рублях (целое)
+  img: string;      // URL или base64 Data URL
+}
+interface SavedCard {
+  id: string;       // 'c' + Date.now()
+  last4: string;    // Последние 4 цифры
+  brand: 'VISA' | 'MC' | 'MIR' | 'CARD';
+  exp: string;      // 'MM/YY'
+  holderName: string;
+  isDefault: boolean;
+}
+interface Transaction {
+  id: string;       // 'tx' + Date.now()
+  total: number;    // Сумма в рублях
+  method: string;   // Описание метода оплаты
+  ts: number;       // Unix timestamp
+  items: CartItem[];
+}</pre>
+              </div>
+            </div>
+
+            <!-- STYLES -->
+            <div class="dd-sec" id="dd-styles">
+              <h2 class="dd-h1">Стили и цветовая система</h2>
+              <div class="dd-code-wrap">
+                <div class="dd-code-head"><span class="dd-code-lang">css — цветовые переменные</span><button class="dd-copy-btn" onclick="ddCopy(this)">Копировать</button></div>
+                <pre>:root {
+  --gold: #d4a574;       /* Основной акцент */
+  --gold-dark: #c18e55;  /* Hover-состояние */
+  --gold-light: #e8c090; /* Светлый вариант */
+
+  --bg: #fff;
+  --bg-warm: #f9f7f4;    /* Тёплый фон секций */
+  --light: #faf9f7;      /* Карточки, формы */
+  --border: #e0d8d0;     /* Рамки */
+  --dark: #222;          /* Основной текст */
+  --mid: #555;           /* Вторичный текст */
+}</pre>
+              </div>
+              <div class="dd-info"><p>Для смены цветовой схемы достаточно изменить значения CSS-переменных в <code>:root</code>. Все компоненты используют переменные.</p></div>
+            </div>
+
+            <!-- MENU MODULE -->
+            <div class="dd-sec" id="dd-menu">
+              <h2 class="dd-h1">Модуль меню</h2>
+              <div class="dd-code-wrap">
+                <div class="dd-code-head"><span class="dd-code-lang">javascript</span><button class="dd-copy-btn" onclick="ddCopy(this)">Копировать</button></div>
+                <pre>// Загрузка (localStorage → defaultMenu)
+function loadMenu() {
+  try {
+    const s = localStorage.getItem('zeb_menu');
+    return s ? JSON.parse(s) : deepClone(defaultMenu);
+  } catch(e) { return deepClone(defaultMenu); }
+}
+
+// Рендер категории в DOM
+function renderMenuCategory(cat) {
+  const grid = document.getElementById('grid-' + cat);
+  const items = menuData[cat] || [];
+  grid.innerHTML = items.map(d => `
+    &lt;div class="dish"&gt;
+      &lt;img src="${esc(d.img)}" alt="${esc(d.name)}"&gt;
+      &lt;div class="dish-info"&gt;
+        &lt;h4&gt;${esc(d.name)}&lt;/h4&gt;
+        &lt;p&gt;${esc(d.desc)}&lt;/p&gt;
+        &lt;strong&gt;${d.price} ₽&lt;/strong&gt;
+        &lt;button onclick="addToCart('${escJs(d.name)}',${d.price})"&gt;
+          В корзину
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;`).join('');
+}</pre>
+              </div>
+              <h2 class="dd-h2">Добавление новой категории</h2>
+              <ul class="dd-ul">
+                <li>Добавьте ключ в объект <code>defaultMenu</code></li>
+                <li>Добавьте вкладку <code>&lt;div class="tab" data-category="..."&gt;</code> в секцию <code>#menu</code></li>
+                <li>Добавьте блок <code>&lt;div class="menu-category" id="..."&gt;&lt;div id="grid-..."&gt;</code></li>
+                <li>Добавьте <code>&lt;option&gt;</code> в <code>#fCategory</code> и <code>#adminCatFilter</code></li>
+              </ul>
+            </div>
+
+            <!-- CART -->
+            <div class="dd-sec" id="dd-cart">
+              <h2 class="dd-h1">Корзина и заказы</h2>
+              <div class="dd-code-wrap">
+                <div class="dd-code-head"><span class="dd-code-lang">javascript</span><button class="dd-copy-btn" onclick="ddCopy(this)">Копировать</button></div>
+                <pre>// Корзина — массив в памяти (сбрасывается при перезагрузке)
+let cart = []; // [{name: string, price: number}]
+
+function addToCart(name, price) {
+  cart.push({ name, price });
+  updateCart(); // Обновляет бейдж и содержимое модалки
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function updateCart() {
+  const total = cart.reduce((s, i) => s + i.price, 0);
+  // Обновляет: #cartCount, #cartItems, #cartTotal
+}</pre>
+              </div>
+            </div>
+
+            <!-- PAYMENT -->
+            <div class="dd-sec" id="dd-payment">
+              <h2 class="dd-h1">Платёжная система</h2>
+              <div class="dd-warn"><p>⚠ Встроенная форма — демонстрационная. Для реальных платежей подключите сертифицированный шлюз (ЮKassa, Stripe и др.).</p></div>
+              <table class="dd-table">
+                <thead><tr><th>Вкладка</th><th>ID</th><th>Описание</th></tr></thead>
+                <tbody>
+                  <tr><td>Мои карты</td><td><code>#pm-saved</code></td><td>Список из localStorage</td></tr>
+                  <tr><td>Новая карта</td><td><code>#pm-newcard</code></td><td>Форма с валидацией и сохранением</td></tr>
+                  <tr><td>СБП</td><td><code>#pm-sbp</code></td><td>Ввод номера телефона (+7)</td></tr>
+                  <tr><td>Наличные</td><td><code>#pm-cash</code></td><td>Подтверждение без ввода</td></tr>
+                  <tr><td>История</td><td><code>#pm-history</code></td><td>Последние 20 транзакций</td></tr>
+                </tbody>
+              </table>
+              <div class="dd-code-wrap">
+                <div class="dd-code-head"><span class="dd-code-lang">javascript — определение бренда карты</span><button class="dd-copy-btn" onclick="ddCopy(this)">Копировать</button></div>
+                <pre>function cardBrand(num) {
+  const n = num.replace(/\s/g, '');
+  if (n.startsWith('4'))           return 'VISA';
+  if (/^(22[0-2][0-9]|5[1-5])/.test(n)) return 'MC';
+  if (/^(2200|2201|2202|6762|6304)/.test(n)) return 'MIR';
+  return 'CARD';
+}</pre>
+              </div>
+            </div>
+
+            <!-- ADMIN -->
+            <div class="dd-sec" id="dd-admin">
+              <h2 class="dd-h1">Admin Panel</h2>
+              <p class="dd-p">Кнопка «⚙ Админ» — в нижнем левом углу. Пароль хэшируется через <code>Web Crypto → SHA-256</code>. Пароль по умолчанию: <code>admin2025</code> — смените перед деплоем!</p>
+              <table class="dd-table">
+                <thead><tr><th>Функция</th><th>Описание</th></tr></thead>
+                <tbody>
+                  <tr><td>Добавить блюдо</td><td>Форма с названием, описанием, ценой, категорией, фото</td></tr>
+                  <tr><td>Редактировать блюдо</td><td>Изменить поле, переместить в другую категорию</td></tr>
+                  <tr><td>Удалить блюдо</td><td>С подтверждением; сразу отражается в меню</td></tr>
+                  <tr><td>Замена фотографий</td><td>Hero-фон, интерьер, шеф-повар, управляющая</td></tr>
+                </tbody>
+              </table>
+              <div class="dd-warn"><p>⚠ Данные Admin Panel в localStorage. Очистка браузера сбросит изменения к defaultMenu.</p></div>
+            </div>
+
+            <!-- DEPLOY -->
+            <div class="dd-sec" id="dd-deploy">
+              <h2 class="dd-h1">Деплой на GitHub Pages</h2>
+              <div class="dd-code-wrap">
+                <div class="dd-code-head"><span class="dd-code-lang">bash</span><button class="dd-copy-btn" onclick="ddCopy(this)">Копировать</button></div>
+                <pre>git add .
+git commit -m "feat: update"
+git push origin main
+# Settings → Pages → Source → main → /root → Save
+# Сайт: https://USERNAME.github.io/REPO/</pre>
+              </div>
+              <h2 class="dd-h2">Чеклист перед деплоем</h2>
+              <ul class="dd-ul">
+                <li>Сменить <code>ADMIN_HASH</code> на SHA-256 от нового пароля</li>
+                <li>Заменить URL виджета Restoplace на реальный</li>
+                <li>Заменить iframe Яндекс.Карт на реальный адрес</li>
+                <li>Обновить контактные данные во всех секциях</li>
+                <li>Проверить все пути к изображениям в <code>images/</code></li>
+                <li>Проверить мобильную версию в DevTools</li>
+              </ul>
+            </div>
+
+            <!-- SECURITY -->
+            <div class="dd-sec" id="dd-security">
+              <h2 class="dd-h1">Безопасность</h2>
+              <h2 class="dd-h2">Реализованные меры</h2>
+              <ul class="dd-ul">
+                <li><strong>XSS-защита:</strong> все данные из localStorage проходят через <code>esc()</code> и <code>escJs()</code> перед вставкой в DOM</li>
+                <li><strong>Хэширование пароля:</strong> Admin Panel хранит только SHA-256 хэш в коде</li>
+                <li><strong>Маскирование карт:</strong> хранятся только последние 4 цифры, без CVV и полного номера</li>
+                <li><strong>HTTPS:</strong> GitHub Pages обеспечивает HTTPS по умолчанию</li>
+              </ul>
+              <h2 class="dd-h2">Рекомендации для продакшена</h2>
+              <ul class="dd-ul">
+                <li>Вынести меню и заказы на сервер с базой данных</li>
+                <li>Использовать сертифицированный PCI DSS платёжный шлюз</li>
+                <li>Добавить Content Security Policy (CSP) заголовок</li>
+                <li>Настроить rate limiting на форме бронирования</li>
+                <li>Подключить мониторинг ошибок (Sentry, LogRocket)</li>
+              </ul>
+            </div>
+
+            <!-- CHANGELOG -->
+            <div class="dd-sec" id="dd-changelog">
+              <h2 class="dd-h1">Changelog</h2>
+              <div class="dd-cl-item">
+                <div><div class="dd-cl-ver">v1.3.0</div><div class="dd-cl-date">Апрель 2026</div></div>
+                <div>
+                  <div class="dd-cl-text"><span class="dd-cl-tag dd-cl-new">NEW</span> Политика обработки персональных данных (модальное окно)</div>
+                  <div class="dd-cl-text"><span class="dd-cl-tag dd-cl-new">NEW</span> Документация разработчика (встроена в сайт)</div>
+                  <div class="dd-cl-text"><span class="dd-cl-tag dd-cl-imp">IMP</span> Обновлены ссылки в футере</div>
+                </div>
+              </div>
+              <div class="dd-cl-item">
+                <div><div class="dd-cl-ver">v1.2.0</div><div class="dd-cl-date">Март 2026</div></div>
+                <div>
+                  <div class="dd-cl-text"><span class="dd-cl-tag dd-cl-new">NEW</span> Платёжная форма: сохранённые карты, СБП, история</div>
+                  <div class="dd-cl-text"><span class="dd-cl-tag dd-cl-new">NEW</span> Admin Panel с управлением меню и фото</div>
+                  <div class="dd-cl-text"><span class="dd-cl-tag dd-cl-fix">FIX</span> Экранирование кавычек в названиях блюд</div>
+                </div>
+              </div>
+              <div class="dd-cl-item">
+                <div><div class="dd-cl-ver">v1.1.0</div><div class="dd-cl-date">Февраль 2026</div></div>
+                <div>
+                  <div class="dd-cl-text"><span class="dd-cl-tag dd-cl-new">NEW</span> Корзина заказов с бейджем счётчика</div>
+                  <div class="dd-cl-text"><span class="dd-cl-tag dd-cl-new">NEW</span> Модальные окна новостей с полным контентом</div>
+                  <div class="dd-cl-text"><span class="dd-cl-tag dd-cl-imp">IMP</span> Адаптивная вёрстка для мобильных</div>
+                </div>
+              </div>
+              <div class="dd-cl-item">
+                <div><div class="dd-cl-ver">v1.0.0</div><div class="dd-cl-date">Январь 2026</div></div>
+                <div>
+                  <div class="dd-cl-text"><span class="dd-cl-tag dd-cl-new">NEW</span> Первый публичный релиз</div>
+                  <div class="dd-cl-text"><span class="dd-cl-tag dd-cl-new">NEW</span> Меню с вкладками, интеграция Restoplace</div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /dd-content -->
+        </div><!-- /dd-layout -->
+
+      </div><!-- /legal-modal-body -->
+      <div class="legal-modal-footer">
+        <span class="legal-modal-footer-note">© 2026 ZEB Kitchen · v1.3.0</span>
+        <button class="cta-button" onclick="closeLegalModal('devdocs')">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
